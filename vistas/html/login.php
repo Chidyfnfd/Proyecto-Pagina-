@@ -6,11 +6,11 @@
     <title>Login</title>
 </head>
 <body>
-    <form>
+    <form action="index.php?accion=verificar" autocomplete="nope" class="login__form autocomplete-off" method="post">
         <label for="">usuario</label>
-        <input type="text"></input> 
+        <input type="text" name="usuario"></input> 
         <label for="">contraseña</label>
-        <input type="password"></input> 
+        <input type="password" name="contraseña"></input> 
         <button type="submit">Ingresar</button>
     </form>
 </body>
