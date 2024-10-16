@@ -48,7 +48,7 @@
                     <i class="ri-user-3-line login__icon"></i>
                     <div class="login__box-input">
                         <input name="usuario" type="text" required class="login__input autocomplete-off" placeholder=" " autocomplete="nope" >
-                        <label for="" class="login__label">Email o Usuario</label>
+                        <label for="" class="login__label">Usuario</label>
                     </div>
                 </div>
                 <div class="login__box">
