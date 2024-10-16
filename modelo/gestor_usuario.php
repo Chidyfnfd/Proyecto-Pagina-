@@ -15,16 +15,19 @@ class GestorUsuario
         $sql->bind_param("s", $user_sql); // 's' indica que es un string
         $sql->execute();
         $resultado = $sql->get_result()->fetch_assoc();
-        $conexion->cerrar();
 
         if ($resultado) {
-            if ($resultado["usuario"] == $user_sql && $resultado["contraseña"]) {
+            // Comparar la contraseña directamente (no recomendado en producción)
+            if ($resultado["contraseña"] == $contraseña) {
                 $credencialesCorrectas = true;
             } else {
                 $_SESSION["mensaje"] = "Las credenciales son incorrectas";
             }
+        } else {
+            $_SESSION["mensaje"] = "El usuario no existe";
         }
-        
+
+        $conexion->cerrar();
         return $credencialesCorrectas; // Retornar el resultado
     }
 }
