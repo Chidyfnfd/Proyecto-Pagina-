@@ -5,6 +5,12 @@ class Conexion {
     private $db = "proyecto_pag1";
     private $user = "root";
     private $pass = "";
+    private $sql;
+    private $conexion;
+    private $resultado;
+    private $resultadoAll;
+    private $filasAfectadas;
+    private $dato;
     
     public function conectar() {
         $conexion = mysqli_connect($this->host, $this->user, $this->pass, $this->db);
@@ -12,6 +18,30 @@ class Conexion {
             die("Conexión fallida: " . mysqli_connect_error());
         }
         return $conexion;
+    }
+    public function cerrar()
+    {
+        $this->conexion= null;
+    }
+    public function obtenerResultado()
+    {
+        return $this->resultado;
+    }
+    public function obtenerResultadoAll()
+    {
+        return $this->resultadoAll;
+    }
+    public function obtenerFilasAfectadas()
+    {
+        return $this->filasAfectadas;
+    }
+    public function obtenerDato()
+    {
+        return $this->dato;
+    }
+    public function getConexion()
+    {
+        return $this->conexion;
     }
 }
 ?>
