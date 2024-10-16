@@ -4,12 +4,12 @@
         private $nombre;
         private $contraseña;
         private $usuario;
-         public function __construct($user, $password, $id, $nombre){
-             $this ->usuario = $user;
-             $this ->contraseña = $password;
-             $this ->id = $id;
-             $this -> nombre = $nombre;
-         }
+        public function __construct($usuario, $contraseña, $id = null, $nombre = null) {
+         $this->usuario = $usuario;
+         $this->contraseña = $contraseña;
+         $this->id = $id;
+         $this->nombre = $nombre;
+     }
 
          public function obtener_id (){
             return
