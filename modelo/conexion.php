@@ -12,7 +12,7 @@ class Conexion {
     private $filasAfectadas;
     private $dato;
     
-    public function conectar() {
+    public function abrir() {
         $conexion = mysqli_connect($this->host, $this->user, $this->pass, $this->db);
         if (!$conexion) {
             die("Conexión fallida: " . mysqli_connect_error());
