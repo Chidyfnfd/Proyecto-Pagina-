@@ -23,6 +23,26 @@ class Conexion {
     {
         $this->conexion= null;
     }
+    public function consulta($sql,$opcion)
+    {
+        $this->sql=$sql;
+        try {
+            
+            $this->sql->execute();
+            if($opcion==1){
+                $this->resultado=$this->sql->fetch(PDO::FETCH_ASSOC);
+            }elseif($opcion==2){
+                $this->resultadoAll = $this->sql->fetchAll(PDO::FETCH_ASSOC);
+            }
+            $this->filasAfectadas = $this->sql->rowCount();
+            $this->dato = $this->conexion->lastInsertId();
+        
+        }
+        catch(\PDOException $e){
+            echo $e->getMessage();
+        }
+        
+    }
     public function obtenerResultado()
     {
         return $this->resultado;

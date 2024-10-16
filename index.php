@@ -3,6 +3,8 @@ require_once 'controlador/controlador.php';
 require_once 'modelo/conexion.php';
 require_once 'modelo/usuario.php';
 require_once 'modelo/gestor_usuario.php';
+require_once 'modelo/producto.php';
+require_once 'modelo/gestor_producto.php';
 
 $controlador = new Controlador();
 if (isset($_GET["accion"])) {
@@ -10,8 +12,19 @@ if (isset($_GET["accion"])) {
         $controlador->verPagina('vistas/html/login.php');
     } elseif ($_GET["accion"] == "principal") {
         $controlador->verPagina('vistas/html/principal.php');
+    } elseif ($_GET["accion"] == "productos") {
+        $controlador->verPagina('vistas/html/productos.php');
     } elseif ($_GET["accion"] == "sinPermiso") {
         $controlador->verPagina('vistas/html/sinPermiso.php');
+    } elseif ($_GET["accion"] == "agregarProducto") {
+        $controlador->agregarProducto(
+            null,
+            $_POST["proNombre"],
+            $_POST["proDescripcion"],
+            $_POST["proPrecio"],
+            $_POST["proTipo"],
+            $_POST["proImagen"]
+        );
     }
     if ($_GET["accion"] == "verificar") {
         if (empty($_POST["usuario"]) || empty($_POST["contraseña"])) {
@@ -19,19 +32,18 @@ if (isset($_GET["accion"])) {
             header('Location: index.php?accion=login');
             exit();
         }
-    
+
         // Llamada al método verificar
         $usuario = $_POST["usuario"];
         $contraseña = $_POST["contraseña"];
         $credencialesCorrectas = $controlador->verificar($usuario, $contraseña);
-    
+
         if ($credencialesCorrectas) {
             header("Location: index.php?accion=principal");
         } else {
             header("Location: index.php?accion=sinPermiso");
         }
     }
-    
 } else {
     $controlador->verPagina('vistas/html/login.php');
 }
