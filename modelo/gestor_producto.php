@@ -1,6 +1,6 @@
 <?php
-class  GestorProducto{
-
+class GestorProducto
+{
     public function agregarProducto(Producto $producto)
     {
         $conexion = new Conexion();
@@ -10,15 +10,39 @@ class  GestorProducto{
         $precio = $producto->obtener_precio();
         $tipo = $producto->obtener_tipo();
         $imagen = $producto->obtener_imagen();
-        $sql = $enlaceConexion->prepare("INSERT INTO productos VALUES (NULL,:nombre,:precio,:descripcion,:tipo,:imagen)");
-        $sql->bindParam(":nombre", $nombre, PDO::PARAM_STR);
-        $sql->bindParam(":precio", $precio, PDO::PARAM_INT);
-        $sql->bindParam(":descripcion", $descripcion, PDO::PARAM_STR);
-        $sql->bindParam(":tipo", $tipo, PDO::PARAM_INT);
-        $sql->bindParam(":imagen", $imagen, PDO::PARAM_STR);
-        $conexion->consulta($sql, 0);
-        $filasAfectadas = $conexion->obtenerFilasAfectadas();
+
+        // Prepara la declaración
+        $sql = $enlaceConexion->prepare("INSERT INTO productos (nombre, precio, descripcion, tipo, imagen) VALUES (?, ?, ?, ?, ?)");
+
+        // Verifica si la preparación fue exitosa
+        if ($sql === false) {
+            die("Error al preparar la consulta: " . mysqli_error($enlaceConexion));
+        }
+
+        // Enlaza los parámetros
+        $sql->bind_param("sisss", $nombre, $precio, $descripcion, $tipo, $imagen);
+
+        // Ejecuta la declaración
+        $sql->execute();
+
+        // Obtiene el número de filas afectadas
+        $filasAfectadas = $sql->affected_rows;
+
+        // Cierra la declaración y la conexión
+        $sql->close();
         $conexion->cerrar();
+
         return $filasAfectadas;
     }
+
+    public function listarProductos()
+    {
+        $conexion = new Conexion();
+        $enlaceConexion = $conexion->abrir();
+        $sql = "SELECT * FROM productos;";
+        $result = $conexion->consulta($sql, [], 2); // Llama al método con 2 como opción para obtener todos los resultados
+        $conexion->cerrar();
+        return $result;
+    }
+    
 }

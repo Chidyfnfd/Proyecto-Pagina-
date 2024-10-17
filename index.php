@@ -6,6 +6,8 @@ require_once 'modelo/gestor_usuario.php';
 require_once 'modelo/producto.php';
 require_once 'modelo/gestor_producto.php';
 
+require_once 'modelo/gestor_tipo.php';
+
 $controlador = new Controlador();
 if (isset($_GET["accion"])) {
     if ($_GET["accion"] == "login") {
@@ -13,7 +15,7 @@ if (isset($_GET["accion"])) {
     } elseif ($_GET["accion"] == "principal") {
         $controlador->verPagina('vistas/html/principal.php');
     } elseif ($_GET["accion"] == "productos") {
-        $controlador->verPagina('vistas/html/productos.php');
+        $controlador->listarProductos();
     } elseif ($_GET["accion"] == "sinPermiso") {
         $controlador->verPagina('vistas/html/sinPermiso.php');
     } elseif ($_GET["accion"] == "agregarProducto") {
@@ -23,7 +25,7 @@ if (isset($_GET["accion"])) {
             $_POST["proDescripcion"],
             $_POST["proPrecio"],
             $_POST["proTipo"],
-            $_POST["proImagen"]
+            $_FILES["proImagen"]
         );
     }
     if ($_GET["accion"] == "verificar") {

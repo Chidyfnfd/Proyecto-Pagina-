@@ -57,7 +57,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Home </a>
+                <a class="nav-link" href="index.php?accion=principal">Home </a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="menu.html">Productos <span class="sr-only">(current)</span> </a>
@@ -170,32 +170,37 @@
       <!-- Caja Productos -->
       <div class="filters-content">
         <div class="row grid">
-          <div class="col-sm-6 col-lg-4 all pizza">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="vistas/images/f1.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Delicious Pizza
-                  </h5>
-                  <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
-                    sed eaque
-                  </p>
-                  <div class="options">
-                    <h6>
-                      $20
-                    </h6>
-                    <a href="">
-                      <i class="ri-shopping-cart-2-fill"></i>
-                    </a>
+          <?php foreach ($resultProducto as $producto): ?>
+            <div class="col-sm-6 col-lg-4 all <?php echo htmlspecialchars($producto['tipo']); ?>">
+              <div class="box">
+                <div>
+                  <div class="img-box">
+                    <!-- Imagen dinámica del producto -->
+                    <img src="vistas/images/<?php echo htmlspecialchars($producto['imagen']); ?>" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h5>
+                      <!-- Nombre del producto -->
+                      <?php echo htmlspecialchars($producto['nombre']); ?>
+                    </h5>
+                    <p>
+                      <!-- Descripción del producto -->
+                      <?php echo htmlspecialchars($producto['descripcion']); ?>
+                    </p>
+                    <div class="options">
+                      <h6>
+                        <!-- Precio del producto -->
+                        $<?php echo htmlspecialchars($producto['precio']); ?>
+                      </h6>
+                      <a href="">
+                        <i class="ri-shopping-cart-2-fill"></i>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          <?php endforeach; ?>
         </div>
       </div>
       <div class="btn-box">
@@ -292,39 +297,52 @@
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Producto</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="productForm" action="index.php?accion=agregarProducto" method="POST">
-                        <div class="mb-3">
-                            <label for="productName" class="form-label">Nombre de Producto</label>
-                            <input type="text" class="form-control" id="productName" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="productDescription" class="form-label">Descripción</label>
-                            <textarea class="form-control" id="productDescription" rows="3" required></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="productPrice" class="form-label">Precio</label>
-                            <input type="number" class="form-control" id="productPrice" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="productImage" class="form-label">Imagen</label>
-                            <input type="file" class="form-control" id="productImage" accept="image/*" required>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" onclick="submitForm()">Guardar Cambios</button>
-                </div>
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Producto</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="productForm" action="index.php?accion=agregarProducto" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="proNombre" class="form-label">Nombre de Producto</label>
+              <input type="text" class="form-control" id="proNombre" name="proNombre" required>
+            </div>
+            <div class="mb-3">
+              <label for="proDescripcion" class="form-label">Descripción</label>
+              <textarea class="form-control" id="proDescripcion" name="proDescripcion" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="proPrecio" class="form-label">Precio</label>
+              <input type="number" class="form-control" id="proPrecio" name="proPrecio" required>
+            </div>
+            <div class="mb-3">
+              <label for="proTipo" class="form-label">Tipo</label>
+              <select class="select-agregar" id="proTipo" name="proTipo" required>
+                <option value="" selected="selected">Seleccione un Tipo</option>
+                <?php
+                if ($resultTipo) {
+                  foreach ($resultTipo as $tipo) {
+                    echo "<option value='" . $tipo["id"] . "'>" . $tipo["tipo"] . "</option>";
+                  }
+                }
+                ?>
+              </select>
             </div>
         </div>
+        <div class="mb-3">
+          <label for="proImagen" class="form-label">Imagen</label>
+          <input type="file" class="form-control" id="proImagen" name="proImagen" accept="image/*" required>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        </div>
+        </form>
+      </div>
     </div>
+  </div>
 
   <!-- footer section -->
 
