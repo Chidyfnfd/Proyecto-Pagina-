@@ -33,8 +33,8 @@ class controlador
 
         if ($registros > 0) {
             echo "<script>
-                window.location.href='index.php?accion=clientes&clisuccess=true';
-            </script>";
+                window.location.href = 'index.php?accion=productos';
+            </script>";        
         } else {
             echo "<script>
                 window.location.href='index.php?accion=clientes&clierror=true';
