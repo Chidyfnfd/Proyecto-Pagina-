@@ -5,7 +5,7 @@ require_once 'modelo/usuario.php';
 require_once 'modelo/gestor_usuario.php';
 require_once 'modelo/producto.php';
 require_once 'modelo/gestor_producto.php';
-
+require_once 'modelo/Tipo.php';
 require_once 'modelo/gestor_tipo.php';
 
 $controlador = new Controlador();
@@ -35,6 +35,11 @@ if (isset($_GET["accion"])) {
             $_POST["nuevoPrecio"],
             $_POST["nuevoTipo"],
             $_FILES["nuevoImagen"]
+        );
+    } elseif ($_GET["accion"] == "agregarTipo") {
+        $controlador->agregarTipo(
+            null,
+            $_POST["tipTipo"]
         );
     }
     

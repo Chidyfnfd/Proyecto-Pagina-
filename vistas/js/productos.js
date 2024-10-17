@@ -1,4 +1,4 @@
-// Modal 1
+// Modal Agregar Producto
 const myModal1 = document.getElementById('exampleModal');
 const myInput1 = document.getElementById('myInput');
 
@@ -6,6 +6,7 @@ myModal1.addEventListener('shown.bs.modal', () => {
     myInput1.focus();
 });
 
+// Modal Editar Producto
 function editarProducto(id, nombre, descripcion, precio, tipo, imagen) {
     // Asigna los valores a los campos del modal
     document.getElementById('productoId').value = id;
@@ -44,3 +45,30 @@ function editarProducto(id, nombre, descripcion, precio, tipo, imagen) {
         document.body.style.overflow = ''; // Asegúrate de que el desplazamiento esté habilitado
     });
 }
+
+// Modal Agregar Producto
+const myModal2 = document.getElementById('exampleModal2');
+const myInput2 = document.getElementById('myInput');
+
+myModal1.addEventListener('shown.bs.modal', () => {
+    myInput2.focus();
+});
+
+$(document).ready(function () {
+    // Evento de clic para los filtros
+    $('.filters_menu li').click(function () {
+        var filterValue = $(this).attr('data-filter');
+
+        // Cambia la clase activa
+        $('.filters_menu li').removeClass('active');
+        $(this).addClass('active');
+
+        // Filtra los productos
+        $('.grid .col-sm-6, .grid .col-lg-4').hide(); // Ocultar todos los productos
+        if (filterValue === '*') {
+            $('.grid .col-sm-6, .grid .col-lg-4').show(); // Mostrar todos
+        } else {
+            $(filterValue).show(); // Mostrar solo los que coinciden
+        }
+    });
+});

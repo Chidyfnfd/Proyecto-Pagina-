@@ -9,7 +9,7 @@ class GestorTipo
         $tipo = $tipo->obtener_tipo();
 
         // Prepara la declaración
-        $sql = $enlaceConexion->prepare("INSERT INTO tipo (tipo) VALUES (?)");
+        $sql = $enlaceConexion->prepare("INSERT INTO tipo_producto (tipo) VALUES (?)");
 
         // Verifica si la preparación fue exitosa
         if ($sql === false) {
