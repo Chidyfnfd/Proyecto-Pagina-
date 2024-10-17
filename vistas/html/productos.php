@@ -162,10 +162,11 @@
 
       <ul class="filters_menu">
         <li class="active" data-filter="*">All</li>
-        <li data-filter=".burger">Burger</li>
-        <li data-filter=".pizza">Pizza</li>
-        <li data-filter=".pasta">Pasta</li>
-        <li data-filter=".fries">Fries</li>
+        <?php foreach ($resultTipo as $Tipo): ?>
+          <li data-filter=".<?php echo htmlspecialchars($Tipo['id']); ?>"><?php echo htmlspecialchars($Tipo['tipo']); ?>
+          </li>
+        <?php endforeach; ?>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">+</button>
       </ul>
 
       <!-- Caja Productos -->
@@ -176,33 +177,21 @@
               <div class="box">
                 <div>
                   <div class="img-box">
-                    <!-- Imagen dinámica del producto -->
                     <img src="vistas/images/<?php echo htmlspecialchars($producto['imagen']); ?>" alt="">
                   </div>
                   <div class="detail-box">
-                    <h5>
-                      <!-- Nombre del producto -->
-                      <?php echo htmlspecialchars($producto['nombre']); ?>
-                    </h5>
-                    <p>
-                      <!-- Descripción del producto -->
-                      <?php echo htmlspecialchars($producto['descripcion']); ?>
-                    </p>
+                    <h5><?php echo htmlspecialchars($producto['nombre']); ?></h5>
+                    <p><?php echo htmlspecialchars($producto['descripcion']); ?></p>
                     <div class="options">
-                      <h6>
-                        <!-- Precio del producto -->
-                        $<?php echo htmlspecialchars($producto['precio']); ?>
-                      </h6>
-                      <!-- Botón para abrir el modal de edición -->
+                      <h6>$<?php echo htmlspecialchars($producto['precio']); ?></h6>
                       <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1"
                         onclick="editarProducto('<?php echo $producto['id']; ?>', 
-                            '<?php echo htmlspecialchars($producto['nombre']); ?>',
-                            '<?php echo htmlspecialchars($producto['descripcion']); ?>',
-                            '<?php echo $producto['precio']; ?>',
-                            '<?php echo $producto['tipo']; ?>',
-                            '<?php echo htmlspecialchars($producto['imagen']); ?>')">
+                                       '<?php echo htmlspecialchars($producto['nombre']); ?>',
+                                       '<?php echo htmlspecialchars($producto['descripcion']); ?>',
+                                       '<?php echo $producto['precio']; ?>',
+                                       '<?php echo htmlspecialchars($producto['tipo']); ?>', <!-- Asegúrate de que aquí esté el nombre del tipo -->
+                                       '<?php echo htmlspecialchars($producto['imagen']); ?>')">
                         <i class="ri-edit-2-line"></i>
-                      </a>
                       </a>
                     </div>
                   </div>
@@ -298,7 +287,7 @@
     </div>
   </footer>
 
-  <!-- Modal Agregar-->
+  <!-- Modal Agregar Producto-->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -347,7 +336,7 @@
     </div>
   </div>
 
-  <!-- Modal Editar -->
+  <!-- Modal Editar Producto-->
   <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -408,31 +397,54 @@
     </div>
   </div>
 
-  <!-- footer section -->
+  <!-- Modal Agregar Tipo-->
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Tipo</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="TipoForm" action="index.php?accion=agregarTipo" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="tipTipo" class="form-label">Nombre del Tipo</label>
+              <input type="text" class="form-control" id="tipTipo" name="tipTipo" required>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 
-  <!-- jQery -->
-  <script src="vistas/js/jquery-3.4.1.min.js"></script>
-  <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    <!-- footer section -->
+
+    <!-- jQery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- popper js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+      </script>
+    <!-- bootstrap js -->
+    <script src="vistas/js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- owl slider -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
     </script>
-  <!-- bootstrap js -->
-  <script src="vistas/js/bootstrap.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- owl slider -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
-  <!-- isotope js -->
-  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
-  <!-- nice select -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
-  <!-- custom js -->
-  <script src="vistas/js/custom.js"></script>
-  <script src="vistas/js/productos.js"></script>
-  <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-  </script>
-  <!-- End Google Map -->
+    <!-- isotope js -->
+    <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+    <!-- nice select -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+    <!-- custom js -->
+    <script src="vistas/js/custom.js"></script>
+    <script src="vistas/js/productos.js"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+    </script>
+    <!-- End Google Map -->
 
 </body>
 

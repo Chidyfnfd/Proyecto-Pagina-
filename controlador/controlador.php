@@ -105,4 +105,21 @@ class controlador
             </script>";
         }
     }
+
+    public function agregarTipo($id, $tipo)
+    {
+        $tipo = new Tipo($id, $tipo);
+        $gestor = new GestorTipo();
+        $registros = $gestor->agregarTipo($tipo);
+
+        if ($registros > 0) {
+            echo "<script>
+                window.location.href = 'index.php?accion=productos';
+            </script>";
+        } else {
+            echo "<script>
+                window.location.href='index.php?accion=clientes&clierror=true';
+            </script>";
+        }
+    }
 }
