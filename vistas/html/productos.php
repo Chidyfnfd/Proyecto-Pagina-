@@ -60,7 +60,8 @@
                 <a class="nav-link" href="index.php?accion=principal">Inicio </a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="index.php?accion=productos">Productos <span class="sr-only">(current)</span> </a>
+                <a class="nav-link" href="index.php?accion=productos">Productos <span class="sr-only">(current)</span>
+                </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.html">Acerca de </a>
@@ -192,8 +193,16 @@
                         <!-- Precio del producto -->
                         $<?php echo htmlspecialchars($producto['precio']); ?>
                       </h6>
-                      <a href="">
-                        <i class="ri-shopping-cart-2-fill"></i>
+                      <!-- Botón para abrir el modal de edición -->
+                      <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1"
+                        onclick="editarProducto('<?php echo $producto['id']; ?>', 
+                            '<?php echo htmlspecialchars($producto['nombre']); ?>',
+                            '<?php echo htmlspecialchars($producto['descripcion']); ?>',
+                            '<?php echo $producto['precio']; ?>',
+                            '<?php echo $producto['tipo']; ?>',
+                            '<?php echo htmlspecialchars($producto['imagen']); ?>')">
+                        <i class="ri-edit-2-line"></i>
+                      </a>
                       </a>
                     </div>
                   </div>
@@ -203,12 +212,6 @@
           <?php endforeach; ?>
         </div>
       </div>
-      <div class="btn-box">
-        <a href="">
-          View More
-        </a>
-      </div>
-    </div>
   </section>
 
   <!-- end food section -->
@@ -295,7 +298,7 @@
     </div>
   </footer>
 
-  <!-- Modal -->
+  <!-- Modal Agregar-->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -344,6 +347,67 @@
     </div>
   </div>
 
+  <!-- Modal Editar -->
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Producto</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="productForm" action="index.php?accion=editarProducto" method="POST" enctype="multipart/form-data">
+            <input type="hidden" id="productoId" name="productoId">
+
+            <div class="mb-3">
+              <label for="nuevoNombre" class="form-label">Nombre de Producto:</label>
+              <input type="text" class="form-control" id="nuevoNombre" name="nuevoNombre" required>
+            </div>
+            <div class="mb-3">
+              <label for="nuevoDescripcion" class="form-label">Descripción:</label>
+              <textarea class="form-control" id="nuevoDescripcion" name="nuevoDescripcion" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="nuevoPrecio" class="form-label">Precio:</label>
+              <input type="number" class="form-control" id="nuevoPrecio" name="nuevoPrecio" required>
+            </div>
+            <div class="mb-3">
+              <label for="nuevoTipo" class="form-label">Tipo:</label>
+              <br>
+              <select class="select-agregar" id="nuevoTipo" name="nuevoTipo" required>
+                <option value="" selected="selected">Seleccione un Tipo</option>
+                <?php
+                if ($resultTipo) {
+                  foreach ($resultTipo as $tipo) {
+                    echo "<option value='" . $tipo["id"] . "'>" . $tipo["tipo"] . "</option>";
+                  }
+                }
+                ?>
+              </select>
+            </div>
+            <br>
+            <br>
+
+            <!-- Vista previa de la imagen -->
+            <div class="mb-3">
+              <label for="imgPreview" class="form-label">Imagen Actual:</label><br>
+              <img id="imgPreview" src="" alt="Imagen del producto" style="max-width: 200px; height: auto;">
+            </div>
+            <div class="mb-3">
+              <label for="nuevoImagen" class="form-label">Cambiar Imagen:</label>
+              <input type="file" class="form-control" id="nuevoImagen" name="nuevoImagen" accept="image/*">
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- footer section -->
 
   <!-- jQery -->
@@ -364,6 +428,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
   <!-- custom js -->
   <script src="vistas/js/custom.js"></script>
+  <script src="vistas/js/productos.js"></script>
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>

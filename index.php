@@ -27,7 +27,17 @@ if (isset($_GET["accion"])) {
             $_POST["proTipo"],
             $_FILES["proImagen"]
         );
+    } elseif ($_GET["accion"] == "editarProducto") {
+        $controlador->editarProducto(
+            $_POST["productoId"],
+            $_POST["nuevoNombre"],
+            $_POST["nuevoDescripcion"],
+            $_POST["nuevoPrecio"],
+            $_POST["nuevoTipo"],
+            $_FILES["nuevoImagen"]
+        );
     }
+    
     if ($_GET["accion"] == "verificar") {
         if (empty($_POST["usuario"]) || empty($_POST["contraseña"])) {
             $_SESSION['mensaje'] = "El usuario y la contraseña son requeridos.";
