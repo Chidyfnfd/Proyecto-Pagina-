@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="shortcut icon" href="vistas/images/favicon.png" type="">
 
-  <title> Feane </title>
+  <title>ChampiLoco(Productos)</title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="vistas/css/bootstrap.css" />
@@ -45,7 +45,7 @@
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
             <span>
-              Feane
+              ChampiLoco
             </span>
           </a>
 
@@ -57,13 +57,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item">
-                <a class="nav-link" href="index.php?accion=principal">Home </a>
+                <a class="nav-link" href="index.php?accion=principal">Inicio </a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="index.php?accion=productos">Productos <span class="sr-only">(current)</span> </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="about.html">Acerca de </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="book.html">Book Table</a>
@@ -220,25 +220,25 @@
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
             <h4>
-              Contact Us
+              Contactanos
             </h4>
             <div class="contact_link_box">
               <a href="">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
-                  Location
+                  Ubicacion
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                  Llama +57 3000000000
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  demo@gmail.com
+                  correo@gmail.com
                 </span>
               </a>
             </div>
@@ -247,7 +247,7 @@
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
             <a href="" class="footer-logo">
-              Feane
+              ChampiLoco
             </a>
             <p>
               Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin
