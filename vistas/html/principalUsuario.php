@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="shortcut icon" href="vistas/images/favicon.png" type="">
 
-  <title> Feane </title>
+  <title> ChampiLoco </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="vistas/css/bootstrap.css" />
@@ -40,7 +40,7 @@
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
             <span>
-              Feane
+              ChampiLoco
             </span>
           </a>
 
@@ -51,13 +51,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="menu.html">Menu</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="about.html">Acerca de </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="book.html">Book Table</a>
@@ -373,16 +373,16 @@
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          Our Menu
+          Nuestro Menú
         </h2>
       </div>
 
       <ul class="filters_menu">
         <li class="active" data-filter="*">All</li>
-        <li data-filter=".burger">Burger</li>
+        <li data-filter=".burger">Hamburguesa</li>
         <li data-filter=".pizza">Pizza</li>
         <li data-filter=".pasta">Pasta</li>
-        <li data-filter=".fries">Fries</li>
+        <li data-filter=".fries">Fritos</li>
       </ul>
 
       <div class="filters-content">
@@ -1075,7 +1075,7 @@
       </div>
       <div class="btn-box">
         <a href="">
-          View More
+          Ver Más...
         </a>
       </div>
     </div>
@@ -1098,17 +1098,18 @@
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                We Are Feane
+                Nosotros somos ChampiLoco
               </h2>
             </div>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
+            En ChampiLoco, nuestra misión es llevarte el sabor más auténtico y fresco de la comida rápida, 
+            directamente a tu mesa. Sabemos lo importante que es disfrutar de una comida deliciosa y rápida 
+            sin comprometer la calidad. Cada uno de nuestros platillos está preparado con ingredientes frescos 
+            y un toque de pasión por la gastronomía.¡Descubre por qué somos la mejor opción cuando se trata de 
+            satisfacer tus antojos con rapidez y sabor! Porque en ChampiLoco, la calidad no se negocia, se disfruta.
             </p>
             <a href="">
-              Read More
+              Leer más
             </a>
           </div>
         </div>
@@ -1185,7 +1186,7 @@
     <div class="container">
       <div class="heading_container heading_center psudo_white_primary mb_45">
         <h2>
-          What Says Our Customers
+          Lo que dicen nuestros clientes 
         </h2>
       </div>
       <div class="carousel-wrap row ">
@@ -1246,19 +1247,19 @@
               <a href="">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
-                  Location
+                Ubicación
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                Llama +57 3000000000
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  demo@gmail.com
+                  correo@gmail.com
                 </span>
               </a>
             </div>
@@ -1267,7 +1268,7 @@
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
             <a href="" class="footer-logo">
-              Feane
+              ChampiLoco
             </a>
             <p>
               Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
