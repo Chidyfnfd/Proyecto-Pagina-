@@ -2,27 +2,35 @@
 class GestorTipo
 {
 
-    //public function agregarProducto(Producto $producto)
-    //{
-    //    $conexion = new Conexion();
-    //    $enlaceConexion = $conexion->abrir();
-    //    $nombre = $producto->obtener_nombre();
-    //    $descripcion = $producto->obtener_descripcion();
-    //    $precio = $producto->obtener_precio();
-    //    $tipo = $producto->obtener_tipo();
-    //    $imagen = $producto->obtener_imagen();
+    public function agregarTipo(Tipo $tipo)
+    {
+        $conexion = new Conexion();
+        $enlaceConexion = $conexion->abrir();
+        $tipo = $tipo->obtener_tipo();
 
-    //    $sql = $enlaceConexion->prepare("INSERT INTO productos (id, nombre, precio, descripcion, tipo, imagen) VALUES (NULL, ?, ?, ?, ?, ?)");
-    //    $sql->bind_param("sisss", $nombre, $precio, $descripcion, $tipo, $imagen);
+        // Prepara la declaración
+        $sql = $enlaceConexion->prepare("INSERT INTO tipo (tipo) VALUES (?)");
 
-    //    $sql->execute();
-    //    $filasAfectadas = $sql->affected_rows;
+        // Verifica si la preparación fue exitosa
+        if ($sql === false) {
+            die("Error al preparar la consulta: " . mysqli_error($enlaceConexion));
+        }
 
-    //    $sql->close();
-    //    $conexion->cerrar();
+        // Enlaza los parámetros
+        $sql->bind_param("s", $tipo);
 
-    //    return $filasAfectadas;
-    //}
+        // Ejecuta la declaración
+        $sql->execute();
+
+        // Obtiene el número de filas afectadas
+        $filasAfectadas = $sql->affected_rows;
+
+        // Cierra la declaración y la conexión
+        $sql->close();
+        $conexion->cerrar();
+
+        return $filasAfectadas;
+    }
 
     public function listarTipos()
     {
