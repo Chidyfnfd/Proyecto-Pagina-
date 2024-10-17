@@ -9,10 +9,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="shortcut icon" href="vistas/images/favicon.png" type="">
 
-  <title> Champi Admin </title>
+  <title>ChampiLoco(Productos)</title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="vistas/css/bootstrap.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
 
   <!--owl slider stylesheet -->
@@ -152,7 +153,7 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                       Restaurante especializado en champiñones
+                      Restaurante especializado en champiñones
                     </h1>
                     <p>
                       Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam
@@ -175,7 +176,7 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                    Restaurante especializado en champiñones
+                      Restaurante especializado en champiñones
                     </h1>
                     <p>
                       Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam
@@ -198,7 +199,7 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                    Restaurante especializado en champiñones
+                      Restaurante especializado en champiñones
                     </h1>
                     <p>
                       Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam
@@ -394,49 +395,42 @@
         </h2>
       </div>
 
-      <!-- Filtros -->
-      <ul class="filters_menu">
-        <li class="active" data-filter="*">All</li>
-        <li data-filter=".burger">Burger</li>
-        <li data-filter=".pizza">Pizza</li>
-        <li data-filter=".pasta">Pasta</li>
-        <li data-filter=".fries">Fries</li>
-      </ul>
-
-      <!-- Caja Productos -->
       <div class="filters-content">
         <div class="row grid">
-          <div class="col-sm-6 col-lg-4 all pizza">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="vistas/images/f1.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Delicious Pizza
-                  </h5>
-                  <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
-                    sed eaque
-                  </p>
-                  <div class="options">
-                    <h6>
-                      $20
-                    </h6>
-                    <a href="">
-                      <i class="ri-shopping-cart-2-fill"></i>
-                    </a>
+          <?php
+          $count = 0; // Inicializar el contador
+          foreach ($resultProducto as $producto):
+            if ($count >= 3)
+              break; // Detener el bucle después de mostrar 3 productos
+            ?>
+            <div class="col-sm-6 col-lg-4 all <?php echo htmlspecialchars($producto['tipo']); ?>">
+              <div class="box">
+                <div>
+                  <div class="img-box">
+                    <img src="vistas/images/<?php echo htmlspecialchars($producto['imagen']); ?>" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h5><?php echo htmlspecialchars($producto['nombre']); ?></h5>
+                    <p><?php echo htmlspecialchars($producto['descripcion']); ?></p>
+                    <div class="options">
+                      <h6>$<?php echo htmlspecialchars($producto['precio']); ?></h6>
+                      <a type="button" class="btn btn-primary">
+                        <i class="ri-whatsapp-line"></i>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+            <?php
+            $count++; // Incrementar el contador después de cada producto
+          endforeach;
+          ?>
         </div>
       </div>
 
       <div class="btn-box">
-        <a href="">
+        <a href="index.php?accion=productosCliente">
           Ver Más...
         </a>
       </div>
@@ -464,10 +458,14 @@
               </h2>
             </div>
             <p>
-            En ChampiLoco, nuestra misión es llevarte el sabor más auténtico y fresco de la comida rápida, directamente a tu mesa. 
-            Sabemos lo importante que es disfrutar de una comida deliciosa y rápida sin comprometer la calidad. Cada uno de nuestros 
-            platillos está preparado con ingredientes frescos y un toque de pasión por la gastronomía.¡Descubre por qué somos la mejor 
-            opción cuando se trata de satisfacer tus antojos con rapidez y sabor! Porque en ChampiLoco, la calidad no se negocia, se disfruta.
+              En ChampiLoco, nuestra misión es llevarte el sabor más auténtico y fresco de la comida rápida,
+              directamente a tu mesa.
+              Sabemos lo importante que es disfrutar de una comida deliciosa y rápida sin comprometer la calidad. Cada
+              uno de nuestros
+              platillos está preparado con ingredientes frescos y un toque de pasión por la gastronomía.¡Descubre por
+              qué somos la mejor
+              opción cuando se trata de satisfacer tus antojos con rapidez y sabor! Porque en ChampiLoco, la calidad no
+              se negocia, se disfruta.
             </p>
             <a href="">
               Leer más...
@@ -547,7 +545,7 @@
     <div class="container">
       <div class="heading_container heading_center psudo_white_primary mb_45">
         <h2>
-        Lo que dicen nuestros clientes 
+          Lo que dicen nuestros clientes
         </h2>
       </div>
       <div class="carousel-wrap row ">
@@ -672,13 +670,14 @@
   <!-- footer section -->
 
   <!-- jQery -->
-  <script src="vistas/js/jquery-3.4.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- popper js -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
   <!-- bootstrap js -->
   <script src="vistas/js/bootstrap.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <!-- owl slider -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
   </script>
@@ -687,7 +686,8 @@
   <!-- nice select -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
   <!-- custom js -->
-  <script src="js/custom.js"></script>
+  <script src="vistas/js/custom.js"></script>
+  <script src="vistas/js/productos.js"></script>
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>

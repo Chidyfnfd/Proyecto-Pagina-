@@ -13,7 +13,9 @@ if (isset($_GET["accion"])) {
     if ($_GET["accion"] == "login") {
         $controlador->verPagina('vistas/html/login.php');
     } elseif ($_GET["accion"] == "principal") {
-        $controlador->verPagina('vistas/html/principal.php');
+        $controlador->listarProductosCliente();
+    } elseif ($_GET["accion"] == "principalUsuario") {
+        $controlador->listarProductosUsuario();
     } elseif ($_GET["accion"] == "productos") {
         $controlador->listarProductos();
     } elseif ($_GET["accion"] == "sinPermiso") {
@@ -56,11 +58,11 @@ if (isset($_GET["accion"])) {
         $credencialesCorrectas = $controlador->verificar($usuario, $contraseña);
 
         if ($credencialesCorrectas) {
-            header("Location: index.php?accion=principal");
+            header("Location: index.php?accion=principalUsuario");
         } else {
             header("Location: index.php?accion=sinPermiso");
         }
     }
 } else {
-    $controlador->verPagina('vistas/html/login.php');
+    $controlador->listarProductosCliente();
 }

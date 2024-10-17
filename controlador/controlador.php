@@ -70,6 +70,24 @@ class controlador
         require_once 'vistas/html/productos.php';
     }
 
+    public function listarProductosUsuario()
+    {
+        $gestorProducto = new GestorProducto();
+        $gestorTipo = new GestorTipo();
+        $resultProducto = $gestorProducto->listarProductos();
+        $resultTipo = $gestorTipo->listarTipos();
+        require_once 'vistas/html/principalUsuario.php';
+    }
+
+    public function listarProductosCliente()
+    {
+        $gestorProducto = new GestorProducto();
+        $gestorTipo = new GestorTipo();
+        $resultProducto = $gestorProducto->listarProductos();
+        $resultTipo = $gestorTipo->listarTipos();
+        require_once 'vistas/html/principal.php';
+    }
+
     public function editarProducto($id, $nombre, $descripcion, $precio, $tipo, $imagenFile)
     {
         // Verifica si se ha subido una nueva imagen
