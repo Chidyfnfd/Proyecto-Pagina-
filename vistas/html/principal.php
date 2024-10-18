@@ -618,9 +618,9 @@
             </h4>
             <div class="contact_link_box">
               <a href="">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <i class="ri-whatsapp-line" aria-hidden="true"></i>
                 <span>
-                  Ubicación
+                  Whatsapp +57 3000000000
                 </span>
               </a>
               <a href="">

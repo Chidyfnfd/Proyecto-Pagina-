@@ -87,6 +87,14 @@ class controlador
         $resultTipo = $gestorTipo->listarTipos();
         require_once 'vistas/html/principal.php';
     }
+    public function listarProductosClientes()
+    {
+        $gestorProducto = new GestorProducto();
+        $gestorTipo = new GestorTipo();
+        $resultProducto = $gestorProducto->listarProductos();
+        $resultTipo = $gestorTipo->listarTipos();
+        require_once 'vistas/html/productosCliente.php';
+    }
 
     public function editarProducto($id, $nombre, $descripcion, $precio, $tipo, $imagenFile)
     {

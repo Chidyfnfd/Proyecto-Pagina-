@@ -14,7 +14,9 @@ if (isset($_GET["accion"])) {
         $controlador->verPagina('vistas/html/login.php');
     } elseif ($_GET["accion"] == "principal") {
         $controlador->listarProductosCliente();
-    } elseif ($_GET["accion"] == "principalUsuario") {
+    } elseif ($_GET["accion"] == "productosCliente") {
+        $controlador->listarProductosClientes();
+    }elseif ($_GET["accion"] == "principalUsuario") {
         $controlador->listarProductosUsuario();
     } elseif ($_GET["accion"] == "productos") {
         $controlador->listarProductos();
