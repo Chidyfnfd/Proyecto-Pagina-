@@ -63,18 +63,16 @@ if (isset($_GET["accion"])) {
             header('Location: index.php?accion=login');
             exit();
         }
-
+    
         // Llamada al método verificar
         $usuario = $_POST["usuario"];
         $contraseña = $_POST["contraseña"];
         $credencialesCorrectas = $controlador->verificar($usuario, $contraseña);
-
+    
         if ($credencialesCorrectas) {
             header("Location: index.php?accion=principalUsuario");
         } else {
             header("Location: index.php?accion=sinPermiso");
         }
     }
-} else {
-    $controlador->listarProductosCliente();
 }
