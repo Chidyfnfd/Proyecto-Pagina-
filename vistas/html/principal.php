@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="shortcut icon" href="vistas/images/favicon.png" type="">
 
-  <title>ChampiLoco(Productos)</title>
+  <title>ChampiLoco(Admin)</title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="vistas/css/bootstrap.css" />
@@ -129,11 +129,11 @@
                   </g>
                 </svg>
               </a>
-              <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                <i class="ri-door-open-fill"></i>
-                </button>
-              </form>
+              <form class="form-inline" action="http://localhost/proyecto-pagina-/index.php?accion=login" method="post">
+                  <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
+                    <i class="ri-door-open-fill"></i>
+                  </button>
+                </form>
               <a href="" class="order_online">
                 Pedir en linea
               </a>
