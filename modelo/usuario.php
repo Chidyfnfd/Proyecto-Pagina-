@@ -5,7 +5,7 @@
         private $contraseña;
         private $usuario;
         private $tipoUsuario;
-        public function __construct($usuario, $contraseña, $id = null, $nombre = null, $tipoUsuario) {
+        public function __construct($id = null, $usuario, $contraseña,  $nombre = null, $tipoUsuario) {
          $this->usuario = $usuario;
          $this->contraseña = $contraseña;
          $this->id = $id;
