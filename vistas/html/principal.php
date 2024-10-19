@@ -43,7 +43,7 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="index.php?accion=principal">
             <span>
               ChampiLoco
             </span>
@@ -57,7 +57,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.php?accion=principal">Inicio <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="index.php?accion=productos">Productos</a>
@@ -415,7 +415,7 @@
                     <div class="options">
                       <h6>$<?php echo htmlspecialchars($producto['precio']); ?></h6>
                       <a type="button" class="btn btn-primary">
-                        <i class="ri-whatsapp-line"></i>
+                        <i class="sad"></i>
                       </a>
                     </div>
                   </div>

@@ -30,4 +30,37 @@ class GestorUsuario
         $conexion->cerrar();
         return $credencialesCorrectas; // Retornar el resultado
     }
+    public function agregarCliente(Usuario $usuario)
+    {
+        $conexion = new Conexion();
+        $enlaceConexion = $conexion->abrir();
+        $nombre = $usuario->obtener_nombre();
+        $contraseña = $usuario->obtener_contraseña();
+        $usuario = $usuario->obtener_usuario();
+        $tipoUsuario = $usuario->obtener_tipoUsuario();
+       
+
+        // Prepara la declaración
+        $sql = $enlaceConexion->prepare("INSERT INTO usuarios (nombre, contraseña, usuario, tipoUsuario) VALUES (?, ?, ?, ?)");
+
+        // Verifica si la preparación fue exitosa
+        if ($sql === false) {
+            die("Error al preparar la consulta: " . mysqli_error($enlaceConexion));
+        }
+
+        // Enlaza los parámetros
+        $sql->bind_param("sssi", $nombre, $contraseña, $usuario, $tipoUsuario);
+
+        // Ejecuta la declaración
+        $sql->execute();
+
+        // Obtiene el número de filas afectadas
+        $filasAfectadas = $sql->affected_rows;
+
+        // Cierra la declaración y la conexión
+        $sql->close();
+        $conexion->cerrar();
+
+        return $filasAfectadas;
+    }
 }

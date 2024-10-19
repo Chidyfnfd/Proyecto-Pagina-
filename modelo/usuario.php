@@ -4,11 +4,13 @@
         private $nombre;
         private $contraseña;
         private $usuario;
-        public function __construct($usuario, $contraseña, $id = null, $nombre = null) {
+        private $tipoUsuario;
+        public function __construct($usuario, $contraseña, $id = null, $nombre = null, $tipoUsuario) {
          $this->usuario = $usuario;
          $this->contraseña = $contraseña;
          $this->id = $id;
          $this->nombre = $nombre;
+         $this->tipoUsuario = $tipoUsuario;
      }
 
          public function obtener_id (){
@@ -26,5 +28,9 @@
          public function obtener_usuario (){
             return
             $this -> usuario;
+         }
+         public function obtener_tipoUsuario (){
+            return
+            $this -> tipoUsuario;
          }
     }
