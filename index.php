@@ -24,7 +24,10 @@ if (isset($_GET["accion"])) {
         $controlador->verPagina('vistas/html/sinPermiso.php');
     } elseif ($_GET["accion"] == "crearCliente") {
         $controlador->verPagina('vistas/html/crearCliente.php');
-    } elseif ($_GET["accion"] == "agregarProducto") {
+    } elseif ($_GET["accion"] == "acercaDe") {
+        $controlador->verPagina('vistas/html/acercaDe.php');
+    }elseif ($_GET["accion"] == "agregarProducto") {
+        
         $controlador->agregarProducto(
             null,
             $_POST["proNombre"],
@@ -55,7 +58,7 @@ if (isset($_GET["accion"])) {
             $_POST["usuUsuario"],
             2,
         );
-    } 
+    }
     
     if ($_GET["accion"] == "verificar") {
         if (empty($_POST["usuario"]) || empty($_POST["contraseña"])) {

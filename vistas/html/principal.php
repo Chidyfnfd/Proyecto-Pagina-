@@ -63,7 +63,7 @@
                 <a class="nav-link" href="index.php?accion=productos">Productos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">Acerca de </a>
+                <a class="nav-link" href="index.php?accion=acercaDe">Acerca de </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="book.html">Book Table</a>
@@ -467,7 +467,7 @@
               opción cuando se trata de satisfacer tus antojos con rapidez y sabor! Porque en ChampiLoco, la calidad no
               se negocia, se disfruta.
             </p>
-            <a href="">
+            <a href="index.php?accion=acercaDe">
               Leer más...
             </a>
           </div>
