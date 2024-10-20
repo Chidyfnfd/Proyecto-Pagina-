@@ -60,7 +60,8 @@
                 <a class="nav-link" href="index.php?accion=principal">Inicio </a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="index.php?accion=productosCliente">Productos <span class="sr-only">(current)</span>
+                <a class="nav-link" href="index.php?accion=productosCliente">Productos <span
+                    class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
@@ -131,10 +132,10 @@
                 </svg>
               </a>
               <form class="form-inline" action="http://localhost/proyecto-pagina-/index.php?accion=login" method="post">
-                  <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
-                    <i class="ri-door-open-fill"></i>
-                  </button>
-                </form>
+                <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
+                  <i class="ri-door-open-fill"></i>
+                </button>
+              </form>
               <a href="" class="order_online">
                 Pedir en linea
               </a>
@@ -145,6 +146,52 @@
     </header>
     <!-- end header section -->
   </div>
+
+  <!-- offer section -->
+
+  <section class="offer_section layout_padding-bottom">
+    <div class="heading_container heading_center options">
+      <h2>
+        DESCUENTOS
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+          +
+        </button>
+      </h2>
+
+    </div>
+    <div class="offer_container">
+      <div class="container ">
+        <div class="row">
+          <!-- descuento 1 -->
+          <?php
+          foreach ($resultDescuento as $producto) {
+            // Calcula el precio con descuento
+            $precioOriginal = $producto['precio'];
+            $descuento = $producto['descuento'];
+            $precioFinal = $precioOriginal - ($precioOriginal * ($descuento / 100));
+
+            // Genera el HTML con los datos del producto
+            echo '<div class="col-md-6">';
+            echo '  <div class="box">';
+            echo '    <div class="img-box">';
+            echo '      <img src="vistas/images/' . $producto['imagen'] . '" alt="' . $producto['nombre'] . '">';
+            echo '      <div class="hover-icon">';
+            echo '        <i class="ri-camera-line"></i>';
+            echo '      </div>';
+            echo '    </div>';
+            echo '    <div class="detail-box">';
+            echo '      <h5>' . $producto['nombre'] . '</h5>';
+            echo '      <h6><span>' . $descuento . '%</span> Off - Precio: $' . $precioFinal . '</h6>';
+            echo '      <a href=""><i class="ri-shopping-cart-2-fill"></i></a>';
+            echo '    </div>';
+            echo '  </div>';
+            echo '</div>';
+          }
+          ?>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- food section -->
 
@@ -157,7 +204,6 @@
             +
           </button>
         </h2>
-
       </div>
 
       <ul class="filters_menu">
@@ -216,7 +262,7 @@
             </h4>
             <div class="contact_link_box">
               <a href="">
-               <i class="ri-whatsapp-line" aria-hidden="true"></i>
+                <i class="ri-whatsapp-line" aria-hidden="true"></i>
                 <span>
                   Whatsapp +57 3000000000
                 </span>

@@ -1,0 +1,19 @@
+/* Estilos para el icono de la cámara */
+.hover-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 3rem;
+    /* Tamaño del icono */
+    color: white;
+    /* Color del icono */
+    cursor: pointer;
+}
+
+/* Mostrar el icono cuando el mouse esté sobre la imagen */
+.img-box:hover .hover-icon {
+    opacity: 1;
+}

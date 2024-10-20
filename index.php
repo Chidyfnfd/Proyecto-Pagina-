@@ -8,6 +8,8 @@ require_once 'modelo/producto.php';
 require_once 'modelo/gestor_producto.php';
 require_once 'modelo/Tipo.php';
 require_once 'modelo/gestor_tipo.php';
+require_once 'modelo/descuentos.php';
+require_once 'modelo/gestor_descuentos.php';
 
 $controlador = new Controlador();
 
@@ -55,7 +57,7 @@ if (isset($_GET["accion"])) {
             $_POST["usuNombre"],
             $_POST["usuContraseña"],
             $_POST["usuUsuario"],
-            2,
+            2
         );
     }
     if ($_GET["accion"] == "verificar") {
@@ -81,5 +83,4 @@ if (isset($_GET["accion"])) {
     }
 } else {
     $controlador->listarProductosPrincipal();
-
 }

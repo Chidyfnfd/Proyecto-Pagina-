@@ -87,8 +87,10 @@ class controlador
     {
         $gestorProducto = new GestorProducto();
         $gestorTipo = new GestorTipo();
+        $gestorDescuento = new GestorDescuento();
         $resultProducto = $gestorProducto->listarProductos();
         $resultTipo = $gestorTipo->listarTipos();
+        $resultDescuento = $gestorDescuento->listarDescuentos();
         require_once 'vistas/html/productos.php';
     }
 
