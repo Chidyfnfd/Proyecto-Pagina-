@@ -41,7 +41,7 @@ class GestorUsuario
 
 
         // Prepara la declaración
-        $sql = $enlaceConexion->prepare("INSERT INTO usuarios (nombre, contraseña, usuario, tipoUsuario) VALUES (?, ?, ?, ?)");
+        $sql = $enlaceConexion->prepare("INSERT INTO usuarios(nombre, contraseña, usuario, tipoUsuario) VALUES (?, ?, ?, ?)");
 
         // Verifica si la preparación fue exitosa
         if ($sql === false) {
