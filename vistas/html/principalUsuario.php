@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="shortcut icon" href="vistas/images/favicon.png" type="">
 
-  <title>ChampiLoco(Productos)</title>
+  <title>ChampiLoco</title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="vistas/css/bootstrap.css" />
@@ -43,7 +43,7 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="index.php?accion=principalUsuario">
             <span>
               ChampiLoco
             </span>
@@ -57,7 +57,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.php?accion=principalUsuario">Inicio <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="index.php?accion=productos">Productos</a>
@@ -66,7 +66,7 @@
                 <a class="nav-link" href="about.html">Acerca de </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="book.html">Book Table</a>
+                <a class="nav-link" href="book.html">Book</a>
               </li>
             </ul>
             <div class="user_option">
@@ -129,11 +129,11 @@
                   </g>
                 </svg>
               </a>
-              <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-              </form>
+                <form class="form-inline" action="http://localhost/proyecto-pagina-/index.php?accion=login" method="post">
+                  <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
+                    <i class="ri-door-open-fill"></i>
+                  </button>
+                </form>
               <a href="" class="order_online">
                 Pedir en linea
               </a>
@@ -483,7 +483,7 @@
     <div class="container">
       <div class="heading_container">
         <h2>
-          Book A Table
+          Reserva una orden
         </h2>
       </div>
       <div class="row">
@@ -491,18 +491,21 @@
           <div class="form_container">
             <form action="">
               <div>
-                <input type="text" class="form-control" placeholder="Your Name" />
+                <input type="text" class="form-control" placeholder="Tu nombre" />
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="Phone Number" />
+                <input type="text" class="form-control" placeholder="Tu número de telefono" />
               </div>
               <div>
-                <input type="email" class="form-control" placeholder="Your Email" />
+                <input type="email" class="form-control" placeholder="Tu dirección" />
               </div>
               <div>
                 <select class="form-control nice-select wide">
                   <option value="" disabled selected>
-                    How many persons?
+                    ¿Para cuantas personas?
+                  </option>
+                  <option value="">
+                    1
                   </option>
                   <option value="">
                     2
@@ -516,6 +519,15 @@
                   <option value="">
                     5
                   </option>
+                  <option value="">
+                    6
+                  </option>
+                  <option value="">
+                    7
+                  </option>
+                  <option value="">
+                    8
+                  </option>
                 </select>
               </div>
               <div>
@@ -523,7 +535,7 @@
               </div>
               <div class="btn_box">
                 <button>
-                  Book Now
+                  Reserva ahora
                 </button>
               </div>
             </form>
@@ -606,9 +618,9 @@
             </h4>
             <div class="contact_link_box">
               <a href="">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <i class="ri-whatsapp-line" aria-hidden="true"></i>
                 <span>
-                  Ubicación
+                  Whatsapp +57 3000000000
                 </span>
               </a>
               <a href="">

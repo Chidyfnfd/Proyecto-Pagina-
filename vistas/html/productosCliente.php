@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="shortcut icon" href="vistas/images/favicon.png" type="">
 
-  <title>ChampiLoco(Productos)</title>
+  <title>ChampiLoco(Menú)</title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="vistas/css/bootstrap.css" />
@@ -60,7 +60,7 @@
                 <a class="nav-link" href="index.php?accion=principal">Inicio </a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="index.php?accion=productosCliente">Productos <span class="sr-only">(current)</span>
+                <a class="nav-link" href="index.php?accion=productos">Productos <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
@@ -130,11 +130,11 @@
                   </g>
                 </svg>
               </a>
-              <form class="form-inline" action="http://localhost/proyecto-pagina-/index.php?accion=login" method="post">
-                  <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
-                    <i class="ri-door-open-fill"></i>
-                  </button>
-                </form>
+              <form class="form-inline">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" href="index.php?accion=login">
+                  <i class="ri-door-open-fill"aria-hidden="true"></i>
+                </button>
+              </form>
               <a href="" class="order_online">
                 Pedir en linea
               </a>
@@ -152,10 +152,7 @@
     <div class="container">
       <div class="heading_container heading_center options">
         <h2>
-          PRODUCTOS
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            +
-          </button>
+          MENÚ
         </h2>
 
       </div>
@@ -166,7 +163,6 @@
           <li data-filter=".<?php echo htmlspecialchars($Tipo['id']); ?>"><?php echo htmlspecialchars($Tipo['tipo']); ?>
           </li>
         <?php endforeach; ?>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">+</button>
       </ul>
 
       <!-- Caja Productos -->
@@ -191,7 +187,7 @@
                                        '<?php echo $producto['precio']; ?>',
                                        '<?php echo htmlspecialchars($producto['tipo']); ?>', <!-- Asegúrate de que aquí esté el nombre del tipo -->
                                        '<?php echo htmlspecialchars($producto['imagen']); ?>')">
-                        <i class="ri-edit-2-line"></i>
+                        <i class="ri-shopping-cart-2-fill"></i>
                       </a>
                     </div>
                   </div>
@@ -216,7 +212,7 @@
             </h4>
             <div class="contact_link_box">
               <a href="">
-               <i class="ri-whatsapp-line" aria-hidden="true"></i>
+                <i class="ri-whatsapp-line" aria-hidden="true"></i>
                 <span>
                   Whatsapp +57 3000000000
                 </span>
@@ -277,139 +273,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Modal Agregar Producto-->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Producto</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="productForm" action="index.php?accion=agregarProducto" method="POST" enctype="multipart/form-data">
-            <div class="mb-3">
-              <label for="proNombre" class="form-label">Nombre de Producto</label>
-              <input type="text" class="form-control" id="proNombre" name="proNombre" required>
-            </div>
-            <div class="mb-3">
-              <label for="proDescripcion" class="form-label">Descripción</label>
-              <textarea class="form-control" id="proDescripcion" name="proDescripcion" rows="3" required></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="proPrecio" class="form-label">Precio</label>
-              <input type="number" class="form-control" id="proPrecio" name="proPrecio" required>
-            </div>
-            <div class="mb-3">
-              <label for="proTipo" class="form-label">Tipo</label>
-              <select class="select-agregar" id="proTipo" name="proTipo" required>
-                <option value="" selected="selected">Seleccione un Tipo</option>
-                <?php
-                if ($resultTipo) {
-                  foreach ($resultTipo as $tipo) {
-                    echo "<option value='" . $tipo["id"] . "'>" . $tipo["tipo"] . "</option>";
-                  }
-                }
-                ?>
-              </select>
-            </div>
-        </div>
-        <div class="mb-3">
-          <label for="proImagen" class="form-label">Imagen</label>
-          <input type="file" class="form-control" id="proImagen" name="proImagen" accept="image/*" required>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Editar Producto-->
-  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Producto</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="productForm" action="index.php?accion=editarProducto" method="POST" enctype="multipart/form-data">
-            <input type="hidden" id="productoId" name="productoId">
-
-            <div class="mb-3">
-              <label for="nuevoNombre" class="form-label">Nombre de Producto:</label>
-              <input type="text" class="form-control" id="nuevoNombre" name="nuevoNombre" required>
-            </div>
-            <div class="mb-3">
-              <label for="nuevoDescripcion" class="form-label">Descripción:</label>
-              <textarea class="form-control" id="nuevoDescripcion" name="nuevoDescripcion" rows="3" required></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="nuevoPrecio" class="form-label">Precio:</label>
-              <input type="number" class="form-control" id="nuevoPrecio" name="nuevoPrecio" required>
-            </div>
-            <div class="mb-3">
-              <label for="nuevoTipo" class="form-label">Tipo:</label>
-              <br>
-              <select class="select-agregar" id="nuevoTipo" name="nuevoTipo" required>
-                <option value="" selected="selected">Seleccione un Tipo</option>
-                <?php
-                if ($resultTipo) {
-                  foreach ($resultTipo as $tipo) {
-                    echo "<option value='" . $tipo["id"] . "'>" . $tipo["tipo"] . "</option>";
-                  }
-                }
-                ?>
-              </select>
-            </div>
-            <br>
-            <br>
-
-            <!-- Vista previa de la imagen -->
-            <div class="mb-3">
-              <label for="imgPreview" class="form-label">Imagen Actual:</label><br>
-              <img id="imgPreview" src="" alt="Imagen del producto" style="max-width: 200px; height: auto;">
-            </div>
-            <div class="mb-3">
-              <label for="nuevoImagen" class="form-label">Cambiar Imagen:</label>
-              <input type="file" class="form-control" id="nuevoImagen" name="nuevoImagen" accept="image/*">
-            </div>
-
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Agregar Tipo-->
-  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Tipo</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="TipoForm" action="index.php?accion=agregarTipo" method="POST" enctype="multipart/form-data">
-            <div class="mb-3">
-              <label for="tipTipo" class="form-label">Nombre del Tipo</label>
-              <input type="text" class="form-control" id="tipTipo" name="tipTipo" required>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
 
     <!-- footer section -->
 

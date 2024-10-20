@@ -11,7 +11,22 @@ class controlador
         $gestorUsuario = new GestorUsuario();
         return $gestorUsuario->busqueda($usuario);
     }
+    public function agregarCliente($id, $nombre, $contraseña, $usuario, $tipoUsuario)
+    {
+        $usuario = new Usuario($id, $nombre, $contraseña, $usuario, $tipoUsuario);
+        $gestor = new GestorUsuario();
+        $registros = $gestor->agregarCliente($usuario);
 
+        if ($registros > 0) {
+            echo "<script>
+                window.location.href = 'index.php?accion=principal';
+            </script>";
+        } else {
+            echo "<script>
+                window.location.href='index.php?accion=crearCliente';
+            </script>";
+        }
+    }
     public function agregarProducto($id, $nombre, $descripcion, $precio, $tipo, $imagenFile)
     {
         $imagenPath = $this->subirImagen($imagenFile);
@@ -86,6 +101,14 @@ class controlador
         $resultProducto = $gestorProducto->listarProductos();
         $resultTipo = $gestorTipo->listarTipos();
         require_once 'vistas/html/principal.php';
+    }
+    public function listarProductosClientes()
+    {
+        $gestorProducto = new GestorProducto();
+        $gestorTipo = new GestorTipo();
+        $resultProducto = $gestorProducto->listarProductos();
+        $resultTipo = $gestorTipo->listarTipos();
+        require_once 'vistas/html/productosCliente.php';
     }
 
     public function editarProducto($id, $nombre, $descripcion, $precio, $tipo, $imagenFile)

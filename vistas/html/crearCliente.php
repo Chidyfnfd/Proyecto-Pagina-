@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Sin Permiso</title>
+    <title>Crear Cuenta</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -38,13 +38,39 @@
     <div class="login">
         <img src="vistas/images/granja.jpg" alt="login image" class="login__img">
 
-        <form action="index.php?accion=verificar" autocomplete="nope" class="login__form autocomplete-off" method="post">
+        <form action="index.php?accion=crearCliente" autocomplete="nope" class="login__form autocomplete-off" method="post">
             <div class="home-img1">
                 <img src="vistas/images/Logo.png" alt="">
+
             </div>
-            <button class="login__button">Reintentar</button>
+            <div class="login__content">
+                <div class="login__box">
+                    <i class="ri-user-3-line login__icon"></i>
+                    <div class="login__box-input">
+                        <input name="usuNombre" id="usuNombre" type="text" required class="login__input autocomplete-off" placeholder=" " autocomplete="nope" >
+                        <label for="usuNombre" class="login__label">Nombre</label>
+                    </div>
+                </div>
+                <div class="login__box">
+                    <i class="ri-user-3-line login__icon"></i>
+                    <div class="login__box-input">
+                    <input name="usuUsuario" id="usuUsuario" type="text" required class="login__input autocomplete-off" placeholder=" " autocomplete="nope" >
+                    <label for="usuUsuario" class="login__label">Nombre de Usuario</label>
+                    </div>
+                </div>
+                <div class="login__box">
+                    <i class="ri-lock-2-line login__icon"></i>
+                    <div class="login__box-input">
+                        <input type="password" name="usuContraseña" id="usuContraseña" required class="login__input autocomplete-off" id="login-pass"
+                            placeholder=" " autocomplete="nope">
+                        <label for="usuContraseña" class="login__label">Contraseña</label>
+                        <i class="ri-eye-off-line login__eye" id="login-eye"></i>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="login__button">Crear cuenta</button>
             <div class="login__check">
-                <a href="index.php?accion=recordar" class="login__forgot">¿Olvido su Contraseña?</a>
+                <a href="index.php?accion=login" class="login__forgot">¿Ya tiene cuenta?</a>
             </div>           
         </form>
         <?php if(isset($_SESSION['mensaje'])) {?>

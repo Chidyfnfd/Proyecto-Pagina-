@@ -63,7 +63,7 @@
             </div>
             <button class="login__button">Iniciar Sesión</button>
             <div class="login__check">
-                <a href="index.php?accion=recordar" class="login__forgot">¿Olvido su Contraseña?</a>
+                <a href="index.php?accion=crearCliente" class="login__forgot">Crear una cuenta</a>
             </div>           
         </form>
         <?php if(isset($_SESSION['mensaje'])) {?>

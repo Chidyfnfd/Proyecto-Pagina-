@@ -14,12 +14,16 @@ if (isset($_GET["accion"])) {
         $controlador->verPagina('vistas/html/login.php');
     } elseif ($_GET["accion"] == "principal") {
         $controlador->listarProductosCliente();
-    } elseif ($_GET["accion"] == "principalUsuario") {
+    } elseif ($_GET["accion"] == "productosCliente") {
+        $controlador->listarProductosClientes();
+    }elseif ($_GET["accion"] == "principalUsuario") {
         $controlador->listarProductosUsuario();
     } elseif ($_GET["accion"] == "productos") {
         $controlador->listarProductos();
     } elseif ($_GET["accion"] == "sinPermiso") {
         $controlador->verPagina('vistas/html/sinPermiso.php');
+    } elseif ($_GET["accion"] == "crearCliente") {
+        $controlador->verPagina('vistas/html/crearCliente.php');
     } elseif ($_GET["accion"] == "agregarProducto") {
         $controlador->agregarProducto(
             null,
@@ -43,7 +47,15 @@ if (isset($_GET["accion"])) {
             null,
             $_POST["tipTipo"]
         );
-    }
+    } elseif ($_GET["accion"] == "crearCliente") {
+        $controlador->agregarCliente(
+            null,
+            $_POST["usuNombre"],
+            $_POST["usuContraseña"],
+            $_POST["usuUsuario"],
+            2,
+        );
+    } 
     
     if ($_GET["accion"] == "verificar") {
         if (empty($_POST["usuario"]) || empty($_POST["contraseña"])) {
