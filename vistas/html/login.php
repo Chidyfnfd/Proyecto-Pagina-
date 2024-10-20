@@ -38,7 +38,8 @@
     <div class="login">
         <img src="vistas/images/granja.jpg" alt="login image" class="login__img">
 
-        <form action="index.php?accion=verificar" autocomplete="nope" class="login__form autocomplete-off" method="post">
+        <form action="index.php?accion=verificar" autocomplete="nope" class="login__form autocomplete-off"
+            method="post">
             <div class="home-img1">
                 <img src="vistas/images/Logo.png" alt="">
 
@@ -47,15 +48,16 @@
                 <div class="login__box">
                     <i class="ri-user-3-line login__icon"></i>
                     <div class="login__box-input">
-                        <input name="usuario" type="text" required class="login__input autocomplete-off" placeholder=" " autocomplete="nope" >
+                        <input name="usuario" type="text" required class="login__input autocomplete-off" placeholder=" "
+                            autocomplete="nope">
                         <label for="" class="login__label">Usuario</label>
                     </div>
                 </div>
                 <div class="login__box">
                     <i class="ri-lock-2-line login__icon"></i>
                     <div class="login__box-input">
-                        <input type="password" name="contraseña" required class="login__input autocomplete-off" id="login-pass"
-                            placeholder=" " autocomplete="nope">
+                        <input type="password" name="contraseña" required class="login__input autocomplete-off"
+                            id="login-pass" placeholder=" " autocomplete="nope">
                         <label for="" class="login__label">Contraseña</label>
                         <i class="ri-eye-off-line login__eye" id="login-eye"></i>
                     </div>
@@ -64,21 +66,16 @@
             <button class="login__button">Iniciar Sesión</button>
             <div class="login__check">
                 <a href="index.php?accion=crearCliente" class="login__forgot">Crear una cuenta</a>
-            </div>           
+            </div>
         </form>
-        <?php if(isset($_SESSION['mensaje'])) {?>
-        <div class='mensaje'>
-            <p><?php echo $_SESSION['mensaje'] ?></p>
-        </div>
-        <?php unset($_SESSION['mensaje']); }  ?>  
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <!-- Template Javascript -->
-    <script src="vistas/js/scriptLogin.js"></script>
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <!-- Template Javascript -->
+        <script src="vistas/js/scriptLogin.js"></script>
 </body>
 
 </html>

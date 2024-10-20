@@ -12,14 +12,14 @@ class GestorUsuario
 
         // Preparar la consulta
         $sql = $enlace_conexion->prepare("SELECT * FROM usuarios WHERE usuario = ?");
-        $sql->bind_param("s", $user_sql); // 's' indica que es un string
+        $sql->bind_param("s", $user_sql);
         $sql->execute();
         $resultado = $sql->get_result()->fetch_assoc();
 
         if ($resultado) {
             // Comparar la contraseña directamente (no recomendado en producción)
             if ($resultado["contraseña"] == $contraseña) {
-                $credencialesCorrectas = true;
+                $credencialesCorrectas = $resultado; // Retorna los datos completos
             } else {
                 $_SESSION["mensaje"] = "Las credenciales son incorrectas";
             }
@@ -28,7 +28,7 @@ class GestorUsuario
         }
 
         $conexion->cerrar();
-        return $credencialesCorrectas; // Retornar el resultado
+        return $credencialesCorrectas; // Retorna los datos completos o false
     }
     public function agregarCliente(Usuario $usuario)
     {
@@ -38,7 +38,7 @@ class GestorUsuario
         $contraseña = $usuario->obtener_contraseña();
         $usuario = $usuario->obtener_usuario();
         $tipoUsuario = $usuario->obtener_tipoUsuario();
-       
+
 
         // Prepara la declaración
         $sql = $enlaceConexion->prepare("INSERT INTO usuarios (nombre, contraseña, usuario, tipoUsuario) VALUES (?, ?, ?, ?)");

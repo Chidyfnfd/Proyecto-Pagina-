@@ -5,11 +5,17 @@ class controlador
     {
         require_once $ruta;
     }
-    public function verificar($usuario, $contraseña)
-    {
+    public function verificar($usuario, $contraseña) {
         $usuario = new Usuario($usuario, $contraseña);
         $gestorUsuario = new GestorUsuario();
-        return $gestorUsuario->busqueda($usuario);
+        $resultado = $gestorUsuario->busqueda($usuario);
+    
+        if ($resultado) {
+            // Devuelve los datos completos del usuario
+            return $resultado;
+        } else {
+            return false;
+        }
     }
     public function agregarCliente($id, $nombre, $contraseña, $usuario, $tipoUsuario)
     {
@@ -94,7 +100,7 @@ class controlador
         require_once 'vistas/html/principalUsuario.php';
     }
 
-    public function listarProductosCliente()
+    public function listarProductosPrincipal()
     {
         $gestorProducto = new GestorProducto();
         $gestorTipo = new GestorTipo();
