@@ -7,10 +7,11 @@ class controlador
     }
     public function verificar($usuario, $contraseña)
     {
-        $usuario = new Usuario($usuario, $contraseña);
-        $gestorUsuario = new GestorUsuario();
-        return $gestorUsuario->busqueda($usuario);
+    $usuario = new Usuario(null, $usuario, $contraseña, null, 'usuario'); // Se añaden los argumentos faltantes
+    $gestorUsuario = new GestorUsuario();
+    return $gestorUsuario->busqueda($usuario);
     }
+
     public function agregarCliente($id, $nombre, $contraseña, $usuario, $tipoUsuario)
     {
         $usuario = new Usuario($id, $nombre, $contraseña, $usuario, $tipoUsuario);
