@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <!-- Basic -->
   <meta charset="utf-8" />
@@ -84,10 +83,10 @@
               if (isset($_SESSION['usuario_id'])) {
                 if ($_SESSION['usuario_tipo'] == 1) {
                   // Mostrar opciones solo para administradores
-                  echo "<a href='index.php?accion=admin'><i class='ri-admin-fill'></i></a>";
+                  echo "<a class='text-light' href='index.php?accion=admin'><i class='ri-admin-fill'></i></a>";
                 } else {
                   // Mostrar opciones para clientes
-                  echo "<a href='index.php?accion=perfil'><i class='ri-user-settings-fill'></i></a>";
+                  echo "<a class='text-light' href='index.php?accion=perfil'><i class='ri-user-settings-fill'></i></a>";
                 }
               } else {
                 // Mostrar opciones para usuarios no autenticados
@@ -117,6 +116,17 @@
                       quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos
                       nihil ducimus libero ipsam.
                     </p>
+                    <?php
+                    if (isset($_SESSION['usuario_id']) && isset($_SESSION['usuario_tipo'])) {
+                      echo "Bienvenido, usuario ID: " . $_SESSION['usuario_id'];
+                      echo "<br>Tipo de usuario: " . $_SESSION['usuario_tipo'];
+                    } else {
+                      echo "No has iniciado sesión. Por favor, inicia sesión primero.";
+                      // Redirigir al login
+                      // header('Location: index.php?accion=login');
+                      exit();
+                    }
+                    ?>
                     <div class="btn-box">
                       <a href="" class="btn1">
                         Ordenar
