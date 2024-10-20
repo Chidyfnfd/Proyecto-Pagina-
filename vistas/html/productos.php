@@ -60,7 +60,7 @@
                 <a class="nav-link" href="index.php?accion=principal">Inicio </a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="index.php?accion=productos">Productos <span class="sr-only">(current)</span>
+                <a class="nav-link" href="index.php?accion=productosCliente">Productos <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
