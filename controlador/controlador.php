@@ -17,6 +17,7 @@ class controlador
             return false;
         }
     }
+
     public function agregarCliente($id, $nombre, $contraseña, $usuario, $tipoUsuario)
     {
         $usuario = new Usuario($id, $nombre, $contraseña, $usuario, $tipoUsuario);

@@ -79,4 +79,5 @@ if ($_GET["accion"] == "verificar") {
     }
 } else {
     $controlador->listarProductosPrincipal();
+
 }

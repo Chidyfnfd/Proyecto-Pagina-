@@ -64,7 +64,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">Acerca de </a>
+                <a class="nav-link" href="index.php?accion=acercaDe">Acerca de </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="book.html">Book Table</a>

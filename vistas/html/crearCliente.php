@@ -45,7 +45,7 @@
             </div>
             <div class="login__content">
                 <div class="login__box">
-                    <i class="ri-user-3-line login__icon"></i>
+                    <i class="ri-id-card-line login__icon"></i>
                     <div class="login__box-input">
                         <input name="usuNombre" id="usuNombre" type="text" required class="login__input autocomplete-off" placeholder=" " autocomplete="nope" >
                         <label for="usuNombre" class="login__label">Nombre</label>
