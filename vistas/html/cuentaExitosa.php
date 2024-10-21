@@ -43,7 +43,7 @@
                 <img src="vistas/images/Logo.png" alt="">
 
             </div>
-            <button type="submit" class="login__button" formaction="?accion=login">Inicia Sesion</button>          
+            <button type="submit" class="login__button" formaction="?accion=login">Inicia Sesion con tu nueva cuenta</button>          
         </form>
         <?php if(isset($_SESSION['mensaje'])) {?>
         <div class='mensaje'>
