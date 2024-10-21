@@ -111,27 +111,15 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      Restaurante especializado en champiñones
+                      ChampiLoco
                     </h1>
                     <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam
-                      quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos
-                      nihil ducimus libero ipsam.
+                      Somos un restaurante especializado en la preparacion de recetas que incluyen champiñones y otros
+                      tipos de hongos sanos para el consumo.
                     </p>
-                    <?php
-                    if (isset($_SESSION['usuario_id']) && isset($_SESSION['usuario_tipo'])) {
-                      echo "Bienvenido, usuario ID: " . $_SESSION['usuario_id'];
-                      echo "<br>Tipo de usuario: " . $_SESSION['usuario_tipo'];
-                    } else {
-                      echo "No has iniciado sesión. Por favor, inicia sesión primero.";
-                      // Redirigir al login
-                      // header('Location: index.php?accion=login');
-                      exit();
-                    }
-                    ?>
                     <div class="btn-box">
                       <a href="" class="btn1">
-                        Ordenar
+                        Ordena Ya
                       </a>
                     </div>
                   </div>
@@ -145,16 +133,15 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      Restaurante especializado en champiñones
+                      Hongos, Hongos y mas Hongos!!!
                     </h1>
                     <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam
-                      quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos
-                      nihil ducimus libero ipsam.
+                      Cualquier cosa que quieras pedir vendra incluida con un aderezo de hongo de tu preferencia, para
+                      complementar el exquisito sabor de nustra comida.
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
-                        Ordenar
+                      <a href="https://www.ecologiaverde.com/cuales-son-los-hongos-comestibles-3420.html" class="btn1">
+                        Hongos Comestibles
                       </a>
                     </div>
                   </div>
@@ -168,16 +155,14 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      Restaurante especializado en champiñones
+                      Diferentes descuentos cada dia
                     </h1>
                     <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam
-                      quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos
-                      nihil ducimus libero ipsam.
+                      Cada dia habra alguna comida con descuento, te invitamos a estar atento a tu comida favorita!!!
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
-                        Ordenar
+                      <a href="index.php?accion=productos#descuentos" class="btn1">
+                        Descuentos
                       </a>
                     </div>
                   </div>
@@ -202,22 +187,32 @@
   <!-- offer section -->
 
   <section class="offer_section layout_padding-bottom">
-    <div class="offer_container">
+    <div id="descuentos" class="offer_container">
       <div class="container ">
         <div class="row">
           <!-- descuento 1 -->
-          <div class="col-md-6">
-            <div class="box">
-              <div class="img-box">
-                <img src="vistas/images/o1.jpg" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>Tasty Thursdays</h5>
-                <h6><span>20%</span> Off</h6>
-                <a href=""><i class="ri-shopping-cart-2-fill"></i></a>
-              </div>
-            </div>
-          </div>
+          <?php
+          foreach ($resultDescuento as $producto) {
+            // Calcula el precio con descuento
+            $precioOriginal = $producto['precio'];
+            $descuento = $producto['descuento'];
+            $precioFinal = $precioOriginal - ($precioOriginal * ($descuento / 100));
+
+            // Genera el HTML con los datos del producto
+            echo '<div class="col-md-6">';
+            echo '  <div class="box">';
+            echo '    <div class="img-box">';
+            echo '      <img src="vistas/images/' . $producto['imagen'] . '" alt="' . $producto['nombre'] . '">';
+            echo '    </div>';
+            echo '    <div class="detail-box">';
+            echo '      <h5>' . $producto['nombre'] . '</h5>';
+            echo '      <h6><span>' . $descuento . '%</span> Off - Precio: $' . $precioFinal . '</h6>';
+            echo '      <a href=""><i class="ri-shopping-cart-2-fill"></i></a>';
+            echo '    </div>';
+            echo '  </div>';
+            echo '</div>';
+          }
+          ?>
         </div>
       </div>
     </div>
@@ -255,7 +250,7 @@
                     <div class="options">
                       <h6>$<?php echo htmlspecialchars($producto['precio']); ?></h6>
                       <a type="button" class="btn btn-primary">
-                        <i class="sad"></i>
+                        <i class="ri-whatsapp-line"></i>
                       </a>
                     </div>
                   </div>
@@ -270,7 +265,7 @@
       </div>
 
       <div class="btn-box">
-        <a href="index.php?accion=productosCliente">
+        <a href="index.php?accion=productos#productos">
           Ver Más...
         </a>
       </div>

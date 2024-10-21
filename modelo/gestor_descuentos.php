@@ -6,12 +6,12 @@ class GestorDescuento
         $conexion = new Conexion();
         $enlaceConexion = $conexion->abrir();
         $producto_id = $descuento->obtener_producto_id();
-        $descuento = $descuento->obtener_descuento();
+        $descuentoC = $descuento->obtener_descuento();
         $estado = $descuento->obtener_estado();
 
 
         // Prepara la declaración
-        $sql = $enlaceConexion->prepare("INSERT INTO productos (producto_id, descuento, estado) VALUES (?, ?, ?)");
+        $sql = $enlaceConexion->prepare("INSERT INTO descuentos (producto_id, descuento, estado) VALUES (?, ?, ?)");
 
         // Verifica si la preparación fue exitosa
         if ($sql === false) {
@@ -19,7 +19,7 @@ class GestorDescuento
         }
 
         // Enlaza los parámetros
-        $sql->bind_param("iis", $producto_id, $descuento, $estado);
+        $sql->bind_param("iis", $producto_id, $descuentoC, $estado);
 
         // Ejecuta la declaración
         $sql->execute();
@@ -38,9 +38,7 @@ class GestorDescuento
     {
         $conexion = new Conexion();
         $enlaceConexion = $conexion->abrir();
-        $sql = "SELECT p.nombre, p.precio, p.imagen, d.descuento 
-                FROM productos p 
-                INNER JOIN descuentos d ON p.id = d.producto_id";
+        $sql = " SELECT d.id AS descuento_id, d.descuento, d.estado, p.id AS producto_id, p.nombre, p.precio, p.imagen FROM descuentos d JOIN productos p ON d.producto_id = p.id";
         $result = $conexion->consulta($sql, [], 2); // Asegúrate de pasar '2' para obtener todos los resultados
         $conexion->cerrar();
         return $result; // Esto debe ser un array de productos
@@ -52,11 +50,11 @@ class GestorDescuento
         $enlaceConexion = $conexion->abrir();
         $id = $descuento->obtener_id();
         $producto_id = $descuento->obtener_producto_id();
-        $descuento = $descuento->obtener_descuento();
+        $descuentoC = $descuento->obtener_descuento();
         $estado = $descuento->obtener_estado();
 
         // Prepara la consulta para actualizar el producto existente
-        $sql = $enlaceConexion->prepare("UPDATE productos SET producto_id = ?, descuento = ?, estado = ? WHERE id = ?");
+        $sql = $enlaceConexion->prepare("UPDATE productos SET producto_id = ?, descuentoC = ?, estado = ? WHERE id = ?");
 
         // Verifica si la preparación fue exitosa
         if ($sql === false) {
@@ -64,7 +62,7 @@ class GestorDescuento
         }
 
         // Enlaza los parámetros
-        $sql->bind_param("iisi", $producto_id, $descuento, $estado, $id);
+        $sql->bind_param("iisi", $producto_id, $descuentoC, $estado, $id);
 
         // Ejecuta la declaración
         $sql->execute();

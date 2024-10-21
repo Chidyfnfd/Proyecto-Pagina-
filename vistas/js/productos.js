@@ -72,3 +72,18 @@ $(document).ready(function () {
         }
     });
 });
+
+function editarDescuento(id, nombre, descuento, estado, imagen) {
+    // Cargar los valores en los campos del modal
+    document.getElementById('descuentoId').value = id;
+    document.getElementById('productoNombre').value = nombre;
+    document.getElementById('porcentajeDescuento').value = descuento;
+    document.getElementById('estadoDescuento').value = estado;
+    
+    // Actualizar la vista previa de la imagen
+    document.getElementById('imgDescuentoPreview').src = 'vistas/images/' + imagen;
+  
+    // Abrir el modal
+    var modal = new bootstrap.Modal(document.getElementById('exampleModal4'));
+    modal.show();
+  }

@@ -109,8 +109,10 @@ class controlador
     {
         $gestorProducto = new GestorProducto();
         $gestorTipo = new GestorTipo();
+        $gestorDescuento = new GestorDescuento();
         $resultProducto = $gestorProducto->listarProductos();
         $resultTipo = $gestorTipo->listarTipos();
+        $resultDescuento = $gestorDescuento->listarDescuentos();
         require_once 'vistas/html/principal.php';
     }
     public function listarProductosClientes()
@@ -163,6 +165,23 @@ class controlador
         $tipo = new Tipo($id, $tipo);
         $gestor = new GestorTipo();
         $registros = $gestor->agregarTipo($tipo);
+
+        if ($registros > 0) {
+            echo "<script>
+                window.location.href = 'index.php?accion=productos';
+            </script>";
+        } else {
+            echo "<script>
+                window.location.href='index.php?accion=clientes&clierror=true';
+            </script>";
+        }
+    }
+
+    public function agregarDescuento($id, $producto_id, $descuentoC, $estado)
+    {
+        $descuento = new Descuento($id, $producto_id, $descuentoC, $estado);
+        $gestor = new GestorDescuento();
+        $registros = $gestor->agregarDescuento($descuento);
 
         if ($registros > 0) {
             echo "<script>

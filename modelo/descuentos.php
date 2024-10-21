@@ -3,13 +3,13 @@ class Descuento
 {
     private $id;
     private $producto_id;
-    private $descuento;
+    private $descuentoC;
     private $estado;
-    public function __construct($id = null, $producto_id, $descuento, $estado)
+    public function __construct($id = null, $producto_id, $descuentoC, $estado)
     {
         $this->id = $id;
         $this->producto_id = $producto_id;
-        $this->descuento = $descuento;
+        $this->descuentoC = $descuentoC;
         $this->estado = $estado;
     }
 
@@ -26,7 +26,7 @@ class Descuento
     public function obtener_descuento()
     {
         return
-            $this->descuento;
+            $this->descuentoC;
     }
     public function obtener_estado()
     {
