@@ -59,6 +59,13 @@ if (isset($_GET["accion"])) {
             $_POST["usuUsuario"],
             2
         );
+    } elseif ($_GET["accion"] == "agregarDescuento") {
+        $controlador->agregarDescuento(
+            null,
+            $_POST["productoId"],
+            $_POST["porcentajeDescuento"],
+            "Activo"
+        );
     }
     if ($_GET["accion"] == "verificar") {
         if (empty($_POST["usuario"]) || empty($_POST["contraseña"])) {

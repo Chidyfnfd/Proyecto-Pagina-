@@ -1,4 +1,25 @@
-/* Estilos para el icono de la cámara */
+/* Estilos para centrar la imagen dentro de su contenedor */
+.img-box {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    /* Ajusta la altura según sea necesario */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    /* Fondo para cuando no hay imagen */
+}
+
+.img-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    /* Asegura que la imagen cubra el contenedor */
+}
+
+/* Estilos para el ícono de la cámara */
 .hover-icon {
     position: absolute;
     top: 50%;
@@ -7,13 +28,11 @@
     opacity: 0;
     transition: opacity 0.3s ease;
     font-size: 3rem;
-    /* Tamaño del icono */
     color: white;
-    /* Color del icono */
     cursor: pointer;
 }
 
-/* Mostrar el icono cuando el mouse esté sobre la imagen */
+/* Mostrar el ícono de la cámara al pasar el mouse sobre el contenedor de la imagen */
 .img-box:hover .hover-icon {
     opacity: 1;
 }

@@ -30,6 +30,7 @@
   <link href="vistas/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="vistas/css/responsive.css" rel="stylesheet" />
+  <link href="vistas/css/stylePrincipal.css" rel="stylesheet" />
 
 </head>
 
@@ -159,8 +160,8 @@
       </h2>
 
     </div>
-    <div class="offer_container">
-      <div class="container ">
+    <div id="descuentos" class="offer_container">
+      <div class="container">
         <div class="row">
           <!-- descuento 1 -->
           <?php
@@ -170,19 +171,27 @@
             $descuento = $producto['descuento'];
             $precioFinal = $precioOriginal - ($precioOriginal * ($descuento / 100));
 
+            // Manejar estado
+            $estado = isset($producto['estado']) ? htmlspecialchars($producto['estado'], ENT_QUOTES) : 'Desconocido';
+
             // Genera el HTML con los datos del producto
             echo '<div class="col-md-6">';
             echo '  <div class="box">';
-            echo '    <div class="img-box">';
-            echo '      <img src="vistas/images/' . $producto['imagen'] . '" alt="' . $producto['nombre'] . '">';
+            echo '    <div class="img-box position-relative" data-bs-toggle="modal" data-bs-target="#exampleModal4" onclick="editarDescuento(';
+            echo '      \'' . $producto["descuento_id"] . '\',';
+            echo '      \'' . htmlspecialchars($producto["nombre"], ENT_QUOTES) . '\',';
+            echo '      ' . $producto["descuento"] . ',';
+            echo '      \'' . $estado . '\',';
+            echo '      \'' . htmlspecialchars($producto["imagen"], ENT_QUOTES) . '\')">';
+            echo '      <img src="vistas/images/' . htmlspecialchars($producto["imagen"], ENT_QUOTES) . '" alt="' . htmlspecialchars($producto["nombre"], ENT_QUOTES) . '" class="img-fluid">';
             echo '      <div class="hover-icon">';
-            echo '        <i class="ri-camera-line"></i>';
+            echo '        <i class="ri-settings-4-fill"></i>';
             echo '      </div>';
             echo '    </div>';
             echo '    <div class="detail-box">';
-            echo '      <h5>' . $producto['nombre'] . '</h5>';
+            echo '      <h5>' . htmlspecialchars($producto["nombre"], ENT_QUOTES) . '</h5>';
             echo '      <h6><span>' . $descuento . '%</span> Off - Precio: $' . $precioFinal . '</h6>';
-            echo '      <a href=""><i class="ri-shopping-cart-2-fill"></i></a>';
+            echo '      <a href="#"><i class="ri-shopping-cart-2-fill"></i></a>';
             echo '    </div>';
             echo '  </div>';
             echo '</div>';
@@ -195,7 +204,7 @@
 
   <!-- food section -->
 
-  <section class="food_section layout_padding">
+  <section id="productos" class="food_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center options">
         <h2>
@@ -456,32 +465,122 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- footer section -->
+  <!-- Modal Agregar Descuento -->
+  <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modalAgregarDescuentoLabel">Agregar Descuento</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="descuentoForm" action="index.php?accion=agregarDescuento" method="POST">
+            <div class="mb-3">
+              <label for="productoId" class="form-label">Seleccionar Producto</label>
+              <select class="form-control" id="productoId" name="productoId" required>
+                <option value="" selected="selected">Seleccione un Producto</option>
+                <?php
+                if ($resultProducto) {
+                  foreach ($resultProducto as $producto) {
+                    echo "<option value='" . $producto["id"] . "'>" . $producto["nombre"] . " - $" . $producto["precio"] . "</option>";
+                  }
+                }
+                ?>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="porcentajeDescuento" class="form-label">Porcentaje de Descuento</label>
+              <input type="number" class="form-control" id="porcentajeDescuento" name="porcentajeDescuento" min="0"
+                max="100" step="1" required>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Guardar Descuento</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
-    <!-- jQery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- popper js -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-      </script>
-    <!-- bootstrap js -->
-    <script src="vistas/js/bootstrap.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- owl slider -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  <!-- Modal Editar Descuento -->
+  <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="editarDescuentoModalLabel">Editar Descuento</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="descuentoForm" action="index.php?accion=editarDescuento" method="POST"
+            enctype="multipart/form-data">
+            <!-- Campo oculto para el ID del descuento -->
+            <input type="hidden" id="descuentoId" name="descuentoId">
+
+            <div class="mb-3">
+              <label for="productoNombre" class="form-label">Nombre de Producto:</label>
+              <input type="text" class="form-control" id="productoNombre" name="productoNombre" readonly>
+            </div>
+
+            <div class="mb-3">
+              <label for="porcentajeDescuento" class="form-label">Porcentaje de Descuento (%):</label>
+              <input type="number" class="form-control" id="porcentajeDescuento" name="porcentajeDescuento" min="0"
+                max="100" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="estadoDescuento" class="form-label">Estado:</label>
+              <br>
+              <select class="form-select" id="estadoDescuento" name="estadoDescuento" required>
+                <option value="Activo">Activo</option>
+                <option value="Inactivo">Inactivo</option>
+              </select>
+            </div>
+
+            <!-- Vista previa de la imagen -->
+            <div class="mb-3">
+              <label for="imgDescuentoPreview" class="form-label">Imagen del Producto:</label><br>
+              <img id="imgDescuentoPreview" src="" alt="Imagen del producto" style="max-width: 200px; height: auto;">
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
-    <!-- isotope js -->
-    <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
-    <!-- nice select -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
-    <!-- custom js -->
-    <script src="vistas/js/custom.js"></script>
-    <script src="vistas/js/productos.js"></script>
-    <!-- Google Map -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-    </script>
-    <!-- End Google Map -->
+  <!-- bootstrap js -->
+  <script src="vistas/js/bootstrap.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <!-- custom js -->
+  <script src="vistas/js/custom.js"></script>
+  <script src="vistas/js/productos.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
 
 </body>
 
