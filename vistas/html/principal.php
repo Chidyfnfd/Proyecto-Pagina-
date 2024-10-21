@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="shortcut icon" href="vistas/images/favicon.png" type="">
 
-  <title>ChampiLoco(Admin)</title>
+  <title>ChampiLoco</title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="vistas/css/bootstrap.css" />
@@ -85,7 +85,7 @@
               if (isset($_SESSION['usuario_id'])) {
                 if ($_SESSION['usuario_tipo'] == 1) {
                   // Mostrar opciones solo para administradores
-                  echo "<a class='text-light' href='index.php?accion=admin'><i class='ri-admin-fill'></i></a>";
+                  echo "<a class='text-light' href='index.php?accion=perfil'><i class='ri-admin-fill'></i></a>";
                 } else {
                   // Mostrar opciones para clientes
                   echo "<a class='text-light' href='index.php?accion=perfil'><i class='ri-user-settings-fill'></i></a>";
