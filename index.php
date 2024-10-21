@@ -51,7 +51,7 @@ if (isset($_GET["accion"])) {
             null,
             $_POST["tipTipo"]
         );
-    } elseif ($_GET["accion"] == "crearCliente") {
+    } elseif ($_GET["accion"] == "agregarCliente") {
         $controlador->agregarCliente(
             null,
             $_POST["usuNombre"],

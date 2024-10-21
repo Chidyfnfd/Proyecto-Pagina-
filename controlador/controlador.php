@@ -5,11 +5,12 @@ class controlador
     {
         require_once $ruta;
     }
-    public function verificar($usuario, $contraseña) {
-        $usuario = new Usuario($usuario, $contraseña);
+    public function verificar($usuarioN, $contraseña)
+    {
+        $usuario = new Usuario(null, null, $contraseña, $usuarioN); // Asigna null a id y nombre
         $gestorUsuario = new GestorUsuario();
         $resultado = $gestorUsuario->busqueda($usuario);
-    
+
         if ($resultado) {
             // Devuelve los datos completos del usuario
             return $resultado;
@@ -18,20 +19,21 @@ class controlador
         }
     }
 
-    public function agregarCliente($id, $nombre, $contraseña, $usuario, $tipoUsuario)
+    public function agregarCliente($id, $nombre, $contraseña, $usuarioN, $tipoUsuario)
     {
-        $usuario = new Usuario($id, $nombre, $contraseña, $usuario, $tipoUsuario);
+
+        $usuario = new Usuario($id, $nombre, $contraseña, $usuarioN, $tipoUsuario);
         $gestor = new GestorUsuario();
         $registros = $gestor->agregarCliente($usuario);
 
         if ($registros > 0) {
-            echo "<script>
-                window.location.href = 'index.php?accion=principal';
-            </script>";
+            $_SESSION['mensaje'] = "Cliente creado exitosamente.";
+            header("Location: index.php?accion=login");
+            exit();
         } else {
-            echo "<script>
-                window.location.href='index.php?accion=crearCliente';
-            </script>";
+            $_SESSION['mensaje'] = "Error al crear el cliente.";
+            header("Location: index.php?accion=crearCliente");
+            exit();
         }
     }
     public function agregarProducto($id, $nombre, $descripcion, $precio, $tipo, $imagenFile)
