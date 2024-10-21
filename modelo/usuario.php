@@ -4,16 +4,16 @@ class Usuario
    private $id;
    private $nombre;
    private $contraseña;
-   private $usuario;
+   private $usuarioN;
    private $tipoUsuario;
 
    // Constructor corregido
-   public function __construct($usuario, $contraseña, $id = null, $nombre = null, $tipoUsuario = null)
+   public function __construct($id = null, $nombre = null, $contraseña, $usuarioN = null, $tipoUsuario = null)
    {
-      $this->usuario = $usuario;
-      $this->contraseña = $contraseña;
       $this->id = $id;
       $this->nombre = $nombre;
+      $this->contraseña = $contraseña;
+      $this->usuarioN = $usuarioN;
       $this->tipoUsuario = $tipoUsuario;
    }
 
@@ -34,7 +34,7 @@ class Usuario
 
    public function obtener_usuario()
    {
-      return $this->usuario;
+      return $this->usuarioN;
    }
 
    public function obtener_tipoUsuario()

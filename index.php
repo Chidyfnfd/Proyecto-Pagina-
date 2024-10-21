@@ -8,6 +8,8 @@ require_once 'modelo/producto.php';
 require_once 'modelo/gestor_producto.php';
 require_once 'modelo/Tipo.php';
 require_once 'modelo/gestor_tipo.php';
+require_once 'modelo/descuentos.php';
+require_once 'modelo/gestor_descuentos.php';
 
 $controlador = new Controlador();
 
@@ -54,7 +56,7 @@ if (isset($_GET["accion"])) {
             null,
             $_POST["tipTipo"]
         );
-    } elseif ($_GET["accion"] == "crearCliente") {
+    } elseif ($_GET["accion"] == "agregarCliente") {
         $controlador->agregarCliente(
             null,
             $_POST["usuNombre"],
@@ -86,5 +88,4 @@ if (isset($_GET["accion"])) {
     }
 } else {
     $controlador->listarProductosPrincipal();
-
 }

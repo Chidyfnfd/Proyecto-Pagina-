@@ -23,7 +23,6 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!-- Template Stylesheet -->
-    <script src="vistas/js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Incluir jQuery UI desde CDN -->
@@ -38,7 +37,7 @@
     <div class="login">
         <img src="vistas/images/granja.jpg" alt="login image" class="login__img">
 
-        <form action="index.php?accion=crearCliente" autocomplete="nope" class="login__form autocomplete-off" method="post">
+        <form action="index.php?accion=agregarCliente" autocomplete="nope" class="login__form autocomplete-off" method="post">
             <div class="home-img1">
                 <img src="vistas/images/Logo.png" alt="">
 

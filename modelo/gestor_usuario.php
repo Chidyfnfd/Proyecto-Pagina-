@@ -36,9 +36,8 @@ class GestorUsuario
         $enlaceConexion = $conexion->abrir();
         $nombre = $usuario->obtener_nombre();
         $contraseña = $usuario->obtener_contraseña();
-        $usuario = $usuario->obtener_usuario();
+        $usuarioN = $usuario->obtener_usuario();
         $tipoUsuario = $usuario->obtener_tipoUsuario();
-
 
         // Prepara la declaración
         $sql = $enlaceConexion->prepare("INSERT INTO usuarios(nombre, contraseña, usuario, tipoUsuario) VALUES (?, ?, ?, ?)");
@@ -49,10 +48,12 @@ class GestorUsuario
         }
 
         // Enlaza los parámetros
-        $sql->bind_param("sssi", $nombre, $contraseña, $usuario, $tipoUsuario);
+        $sql->bind_param("sssi", $nombre, $contraseña, $usuarioN, $tipoUsuario);
 
         // Ejecuta la declaración
-        $sql->execute();
+        if (!$sql->execute()) {
+            die("Error al ejecutar la consulta: " . $sql->error);
+        }
 
         // Obtiene el número de filas afectadas
         $filasAfectadas = $sql->affected_rows;
@@ -63,4 +64,5 @@ class GestorUsuario
 
         return $filasAfectadas;
     }
+
 }

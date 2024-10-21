@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!-- Basic -->
   <meta charset="utf-8" />
@@ -29,6 +30,7 @@
   <link href="vistas/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="vistas/css/responsive.css" rel="stylesheet" />
+  <link href="vistas/css/stylePrincipal.css" rel="stylesheet" />
 
 </head>
 
@@ -203,39 +205,16 @@
     <div class="offer_container">
       <div class="container ">
         <div class="row">
-          <div class="col-md-6  ">
-            <div class="box ">
+          <!-- descuento 1 -->
+          <div class="col-md-6">
+            <div class="box">
               <div class="img-box">
                 <img src="vistas/images/o1.jpg" alt="">
               </div>
               <div class="detail-box">
-                <h5>
-                  Tasty Thursdays
-                </h5>
-                <h6>
-                  <span>20%</span> Off
-                </h6>
-                <a href="">
-                  <i class="ri-shopping-cart-2-fill"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6  ">
-            <div class="box ">
-              <div class="img-box">
-                <img src="vistas/images/o2.jpg" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Pizza Days
-                </h5>
-                <h6>
-                  <span>15%</span> Off
-                </h6>
-                <a href="">
-                  <i class="ri-shopping-cart-2-fill"></i>
-                </a>
+                <h5>Tasty Thursdays</h5>
+                <h6><span>20%</span> Off</h6>
+                <a href=""><i class="ri-shopping-cart-2-fill"></i></a>
               </div>
             </div>
           </div>
