@@ -67,7 +67,7 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="login__button" formaction="?accion=cuentaExitosa">Crear cuenta</button>
+            <button type="submit" class="login__button">Crear cuenta</button>
             <div class="login__check">
                 <a href="index.php?accion=login" class="login__forgot">¿Ya tiene cuenta?</a>
             </div>           

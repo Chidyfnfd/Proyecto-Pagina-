@@ -30,6 +30,8 @@ if (isset($_GET["accion"])) {
         $controlador->verPagina('vistas/html/crearCliente.php');
     } elseif ($_GET["accion"] == "cuentaExitosa") {
         $controlador->verPagina('vistas/html/cuentaExitosa.php');
+    } elseif ($_GET["accion"] == "perfil") {
+        $controlador->verPagina('vistas/html/perfil.php');
     } elseif ($_GET["accion"] == "acercaDe") {
         $controlador->verPagina('vistas/html/acercaDe.php');
     } elseif ($_GET["accion"] == "agregarProducto") {
@@ -80,6 +82,9 @@ if (isset($_GET["accion"])) {
         if ($datosUsuario) {
             // Aquí $datosUsuario contiene todo el registro del usuario
             $_SESSION['usuario_id'] = $datosUsuario['id']; // Accede a los campos correctos
+            $_SESSION['usuario_nombre'] = $datosUsuario['nombre']; 
+            $_SESSION['usuario_contraseña'] = $datosUsuario['contraseña'];
+            $_SESSION['usuario_usuarioN'] = $datosUsuario['usuarioN']; 
             $_SESSION['usuario_tipo'] = $datosUsuario['tipoUsuario'];
             header('Location: index.php?accion=principal');
         } else {
