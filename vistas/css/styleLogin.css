@@ -79,7 +79,7 @@ img {
     background-color: #000000bd;
     border: 1px solid var(--white-color);
     margin-inline: 1.5rem;
-    padding: 2rem 1.5rem;
+    padding: 2rem 2rem;
     border-radius: 1rem;
     backdrop-filter: blur(15px);
     max-height: 570px;
@@ -104,7 +104,7 @@ img {
 }
 
 .home-img1{
-    margin: 5% 30%;
+    margin: 1.7% 30%;
 }
 
 .login__tittle {

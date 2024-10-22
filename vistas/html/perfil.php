@@ -71,7 +71,7 @@
               </li>
             </ul>
             <div class="user_option">
-              <a href="" class="user_link">
+              <a href="index.php?accion=destruirSesion" class="user_link">
                 <i class="ri-door-open-fill" aria-hidden="true"></i>
               </a>
               <a class="cart_link" href="#">
