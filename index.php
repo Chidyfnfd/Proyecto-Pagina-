@@ -10,7 +10,7 @@ require_once 'modelo/Tipo.php';
 require_once 'modelo/gestor_tipo.php';
 require_once 'modelo/descuentos.php';
 require_once 'modelo/gestor_descuentos.php';
-
+ 
 $controlador = new Controlador();
 
 if (isset($_GET["accion"])) {
