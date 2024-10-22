@@ -58,7 +58,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item active">
-                <a class="nav-link" href="index.php?accion=principal">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.php?accion=principal">Inicio</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="index.php?accion=productos">Productos</a>
@@ -72,7 +72,7 @@
             </ul>
             <div class="user_option">
               <a href="" class="user_link">
-                <i class="fa fa-user" aria-hidden="true"></i>
+                <i class="ri-door-open-fill" aria-hidden="true"></i>
               </a>
               <a class="cart_link" href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
