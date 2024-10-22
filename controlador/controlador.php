@@ -185,7 +185,28 @@ class controlador
 
         if ($registros > 0) {
             echo "<script>
-                window.location.href = 'index.php?accion=productos';
+                window.location.href = 'index.php?accion=productos#descuentos';
+            </script>";
+        } else {
+            echo "<script>
+                window.location.href='index.php?accion=clientes&clierror=true';
+            </script>";
+        }
+    }
+
+    public function editarDescuento($id, $producto_id, $descuentoC, $estado)
+    {
+        // Crea el objeto del producto con la información actualizada
+        $descuento = new Descuento($id, $producto_id, $descuentoC, $estado);
+
+        // Realiza la actualización del producto
+        $gestor = new GestorDescuento();
+        $registros = $gestor->editarDescuento($descuento);
+
+        // Verifica si la edición fue exitosa
+        if ($registros > 0) {
+            echo "<script>
+                window.location.href = 'index.php?accion=productos#descuentos';
             </script>";
         } else {
             echo "<script>
