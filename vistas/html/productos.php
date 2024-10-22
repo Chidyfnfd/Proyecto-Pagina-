@@ -71,7 +71,7 @@
               </li>
             </ul>
             <div class="user_option">
-              <a href="" class="user_link">
+              <a href="index.php?accion=destruirSesion" class="user_link">
                 <i class="ri-door-open-fill" aria-hidden="true"></i>
               </a>
               <a class="cart_link" href="#">
@@ -92,7 +92,7 @@
                 }
               } else {
                 // Mostrar opciones para usuarios no autenticados
-                echo "<a class='text-light' href='index.php?accion=login'> <i class='ri-door-open-fill'></i>INICIAR SESION</a>";
+                echo "<a class='text-light' href='index.php?accion=login'> <i class='ri-user-follow-fill'></i>INICIAR SESION</a>";
               }
               ?>
             </div>
