@@ -73,6 +73,17 @@ if (isset($_GET["accion"])) {
             $_POST["porcentajeDescuento"],
             "Activo"
         );
+    } elseif ($_GET["accion"] == "editarDescuento") {
+        $controlador->editarDescuento(
+            $_POST["descuentoId"],
+            $_POST["productoNombre"],
+            $_POST["porcentajeDescuento"],
+            $_POST["estadoDescuento"]
+        );
+    }
+    if ($_GET["accion"] == "destruirSesion") {
+        session_destroy();
+        header('Location: index.php?accion=login');
     }
     if ($_GET["accion"] == "verificar") {
         if (empty($_POST["usuario"]) || empty($_POST["contraseña"])) {
