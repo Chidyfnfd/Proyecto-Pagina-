@@ -49,12 +49,11 @@ class GestorDescuento
         $conexion = new Conexion();
         $enlaceConexion = $conexion->abrir();
         $id = $descuento->obtener_id();
-        $producto_id = $descuento->obtener_producto_id();
         $descuentoC = $descuento->obtener_descuento();
         $estado = $descuento->obtener_estado();
 
-        // Prepara la consulta para actualizar el producto existente
-        $sql = $enlaceConexion->prepare("UPDATE productos SET producto_id = ?, descuentoC = ?, estado = ? WHERE id = ?");
+        // Actualiza la tabla 'descuentos' (en lugar de 'productos')
+        $sql = $enlaceConexion->prepare("UPDATE descuentos SET descuento = ?, estado = ? WHERE id = ?");
 
         // Verifica si la preparación fue exitosa
         if ($sql === false) {
@@ -62,7 +61,7 @@ class GestorDescuento
         }
 
         // Enlaza los parámetros
-        $sql->bind_param("iisi", $producto_id, $descuentoC, $estado, $id);
+        $sql->bind_param("isi", $descuentoC, $estado, $id);
 
         // Ejecuta la declaración
         $sql->execute();
