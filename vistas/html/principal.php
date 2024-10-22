@@ -192,7 +192,13 @@
         <div class="row">
           <!-- descuento 1 -->
           <?php
+          $contador = 0; // Inicializamos el contador
+          
           foreach ($resultDescuento as $producto) {
+            if ($contador >= 2) {
+              break; // Rompe el ciclo después de mostrar 2 productos
+            }
+
             // Calcula el precio con descuento
             $precioOriginal = $producto['precio'];
             $descuento = $producto['descuento'];
@@ -207,10 +213,27 @@
             echo '    <div class="detail-box">';
             echo '      <h5>' . $producto['nombre'] . '</h5>';
             echo '      <h6><span>' . $descuento . '%</span> Off - Precio: $' . $precioFinal . '</h6>';
-            echo '      <a href=""><i class="ri-shopping-cart-2-fill"></i></a>';
+            if (isset($_SESSION['usuario_id'])) {
+              if ($_SESSION['usuario_tipo'] == 1) {
+                // Mostrar opciones solo para administradores
+                ?>
+                <a type="button" class="btn btn-primary" href="index.php?accion=productos#descuentos">
+                  <i class="ri-edit-2-line"></i>
+                </a>
+                <?php
+              } else {
+                // Mostrar opciones para clientes
+                echo '      <a href=""><i class="ri-shopping-cart-2-fill"></i></a>';
+              }
+            } else {
+              // Mostrar opciones para usuarios no autenticados
+              echo "<a class='text-light' href='index.php?accion=login'> <i class='ri-door-open-fill'></i>INICIAR SESION</a>";
+            }
             echo '    </div>';
             echo '  </div>';
             echo '</div>';
+
+            $contador++; // Incrementamos el contador después de mostrar cada producto
           }
           ?>
         </div>
@@ -249,9 +272,24 @@
                     <p><?php echo htmlspecialchars($producto['descripcion']); ?></p>
                     <div class="options">
                       <h6>$<?php echo htmlspecialchars($producto['precio']); ?></h6>
-                      <a type="button" class="btn btn-primary">
-                        <i class="ri-whatsapp-line"></i>
-                      </a>
+                      <?php
+                      if (isset($_SESSION['usuario_id'])) {
+                        if ($_SESSION['usuario_tipo'] == 1) {
+                          // Mostrar opciones solo para administradores
+                          ?>
+                          <a type="button" class="btn btn-primary" href="index.php?accion=productos#productos">
+                            <i class="ri-edit-2-line"></i>
+                          </a>
+                          <?php
+                        } else {
+                          // Mostrar opciones para clientes
+                          echo '      <a href=""><i class="ri-shopping-cart-2-fill"></i></a>';
+                        }
+                      } else {
+                        // Mostrar opciones para usuarios no autenticados
+                        echo "<a class='text-light' href='index.php?accion=login'> <i class='ri-door-open-fill'></i>INICIAR SESION</a>";
+                      }
+                      ?>
                     </div>
                   </div>
                 </div>

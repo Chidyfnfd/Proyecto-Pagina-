@@ -109,9 +109,16 @@
     <div class="heading_container heading_center options">
       <h2>
         DESCUENTOS
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+        <?php
+        if (isset($_SESSION['usuario_id'])) {
+          if ($_SESSION['usuario_tipo'] == 1) {
+            // Mostrar opciones solo para administradores
+            echo "<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal3'>
           +
-        </button>
+        </button>";
+          }
+        }
+        ?>
       </h2>
 
     </div>
@@ -139,9 +146,14 @@
             echo '      \'' . $estado . '\',';
             echo '      \'' . htmlspecialchars($producto["imagen"], ENT_QUOTES) . '\')">';
             echo '      <img src="vistas/images/' . htmlspecialchars($producto["imagen"], ENT_QUOTES) . '" alt="' . htmlspecialchars($producto["nombre"], ENT_QUOTES) . '" class="img-fluid">';
-            echo '      <div class="hover-icon">';
-            echo '        <i class="ri-settings-4-fill"></i>';
-            echo '      </div>';
+            if (isset($_SESSION['usuario_id'])) {
+              if ($_SESSION['usuario_tipo'] == 1) {
+                // Mostrar opciones solo para administradores
+                echo '      <div class="hover-icon">';
+                echo '        <i class="ri-settings-4-fill"></i>';
+                echo '      </div>';
+              }
+            }
             echo '    </div>';
             echo '    <div class="detail-box">';
             echo '      <h5>' . htmlspecialchars($producto["nombre"], ENT_QUOTES) . '</h5>';
@@ -164,9 +176,16 @@
       <div class="heading_container heading_center options">
         <h2>
           PRODUCTOS
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <?php
+          if (isset($_SESSION['usuario_id'])) {
+            if ($_SESSION['usuario_tipo'] == 1) {
+              // Mostrar opciones solo para administradores
+              echo "<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'>
             +
-          </button>
+          </button>";
+            }
+          }
+          ?>
         </h2>
       </div>
 
@@ -176,7 +195,14 @@
           <li data-filter=".<?php echo htmlspecialchars($Tipo['id']); ?>"><?php echo htmlspecialchars($Tipo['tipo']); ?>
           </li>
         <?php endforeach; ?>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">+</button>
+        <?php
+        if (isset($_SESSION['usuario_id'])) {
+          if ($_SESSION['usuario_tipo'] == 1) {
+            // Mostrar opciones solo para administradores
+            echo "<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal2'>+</button>";
+          }
+        }
+        ?>
       </ul>
 
       <!-- Caja Productos -->
@@ -194,15 +220,30 @@
                     <p><?php echo htmlspecialchars($producto['descripcion']); ?></p>
                     <div class="options">
                       <h6>$<?php echo htmlspecialchars($producto['precio']); ?></h6>
-                      <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1"
-                        onclick="editarProducto('<?php echo $producto['id']; ?>', 
+                      <?php
+                      if (isset($_SESSION['usuario_id'])) {
+                        if ($_SESSION['usuario_tipo'] == 1) {
+                          // Mostrar opciones solo para administradores
+                          ?>
+                          <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1"
+                            onclick="editarProducto('<?php echo $producto['id']; ?>', 
                                        '<?php echo htmlspecialchars($producto['nombre']); ?>',
                                        '<?php echo htmlspecialchars($producto['descripcion']); ?>',
                                        '<?php echo $producto['precio']; ?>',
                                        '<?php echo htmlspecialchars($producto['tipo']); ?>', <!-- Asegúrate de que aquí esté el nombre del tipo -->
                                        '<?php echo htmlspecialchars($producto['imagen']); ?>')">
-                        <i class="ri-edit-2-line"></i>
-                      </a>
+                            <i class="ri-edit-2-line"></i>
+                          </a>
+                          <?php
+                        } else {
+                          // Mostrar opciones para clientes
+                          echo "<a class='text-light' href='index.php?accion=#'><i class='ri-whatsapp-line'></i></a>";
+                        }
+                      } else {
+                        // Mostrar opciones para usuarios no autenticados
+                        echo "<a class='text-light' href='index.php?accion=login'> <i class='ri-door-open-fill'></i>INICIAR SESION</a>";
+                      }
+                      ?>
                     </div>
                   </div>
                 </div>
