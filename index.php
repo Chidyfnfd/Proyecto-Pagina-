@@ -81,6 +81,10 @@ if (isset($_GET["accion"])) {
             $_POST["estadoDescuento"]
         );
     }
+    if ($_GET["accion"] == "destruirSesion") {
+        session_destroy();
+        header('Location: index.php?accion=login');
+    }
     if ($_GET["accion"] == "verificar") {
         if (empty($_POST["usuario"]) || empty($_POST["contraseña"])) {
             $_SESSION['mensaje'] = "El usuario y la contraseña son requeridos.";
