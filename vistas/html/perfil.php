@@ -57,7 +57,7 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" href="index.php?accion=principal">Inicio</a>
               </li>
               <li class="nav-item">
@@ -85,10 +85,10 @@
               if (isset($_SESSION['usuario_id'])) {
                 if ($_SESSION['usuario_tipo'] == 1) {
                   // Mostrar opciones solo para administradores
-                  echo "<a class='text-light' href='index.php?accion=admin'><i class='ri-admin-fill'></i></a>";
+                  echo "<a class='text-warning' href='index.php?accion=admin'><i class='ri-admin-fill'></i></a>";
                 } else {
                   // Mostrar opciones para clientes
-                  echo "<a class='text-light' href='index.php?accion=perfil'><i class='ri-user-settings-fill'></i></a>";
+                  echo "<a class='text-warning' href='index.php?accion=perfil'><i class='ri-user-settings-fill'></i></a>";
                 }
               } else {
                 // Mostrar opciones para usuarios no autenticados
@@ -179,19 +179,19 @@
               Tu dosis diaria de locura... ¡con champiñones!
             </p>
             <div class="footer_social">
-              <a href="">
+              <a href="www.facebook.com">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
               </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
+              <a href="www.x.com">
+              <i class="ri-twitter-x-line" aria-hidden></i>
               </a>
-              <a href="">
+              <a href="co.linkedin.com">
                 <i class="fa fa-linkedin" aria-hidden="true"></i>
               </a>
-              <a href="">
+              <a href="www.instagram.com">
                 <i class="fa fa-instagram" aria-hidden="true"></i>
               </a>
-              <a href="">
+              <a href="co.pinterest.com">
                 <i class="fa fa-pinterest" aria-hidden="true"></i>
               </a>
             </div>

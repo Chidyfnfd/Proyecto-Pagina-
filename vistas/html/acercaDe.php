@@ -172,19 +172,19 @@ Somos más que un restaurante, somos un lugar donde los amantes de los champiño
               Tu dosis diaria de locura... ¡con champiñones!
             </p>
             <div class="footer_social">
-              <a href="">
+              <a href="www.facebook.com">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
               </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
+              <a href="www.x.com">
+              <i class="ri-twitter-x-line" aria-hidden></i>
               </a>
-              <a href="">
+              <a href="co.linkedin.com">
                 <i class="fa fa-linkedin" aria-hidden="true"></i>
               </a>
-              <a href="">
+              <a href="www.instagram.com">
                 <i class="fa fa-instagram" aria-hidden="true"></i>
               </a>
-              <a href="">
+              <a href="co.pinterest.com">
                 <i class="fa fa-pinterest" aria-hidden="true"></i>
               </a>
             </div>
