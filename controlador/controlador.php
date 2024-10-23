@@ -7,7 +7,7 @@ class controlador
     }
     public function verificar($usuarioN, $contraseña)
     {
-        $usuario = new Usuario(null, null, $contraseña, $usuarioN); // Asigna null a id y nombre
+        $usuario = new Usuario(null, null, $contraseña, $usuarioN, null); // Asigna null a id y nombre
         $gestorUsuario = new GestorUsuario();
         $resultado = $gestorUsuario->busqueda($usuario);
 

@@ -32,7 +32,7 @@ class Usuario
       return $this->contraseña;
    }
 
-   public function obtener_usuario()
+   public function obtener_usuarioN()
    {
       return $this->usuarioN;
    }

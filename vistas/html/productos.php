@@ -139,7 +139,18 @@
             // Genera el HTML con los datos del producto
             echo '<div class="col-md-6">';
             echo '  <div class="box">';
-            echo '    <div class="img-box position-relative" data-bs-toggle="modal" data-bs-target="#exampleModal4" onclick="editarDescuento(';
+            if (isset($_SESSION['usuario_id'])) {
+              if ($_SESSION['usuario_tipo'] == 1) {
+                // Mostrar opciones solo para administradores
+                echo '    <div class="img-box position-relative" data-bs-toggle="modal" data-bs-target="#exampleModal4" onclick="editarDescuento(';
+              } else {
+                // Mostrar opciones para clientes
+                echo '    <div class="img-box position-relative" data-bs-toggle="modal"';
+              }
+            } else {
+              // Mostrar opciones para usuarios no autenticados
+              echo '    <div class="img-box position-relative">';
+            }
             echo '      \'' . $producto["descuento_id"] . '\',';
             echo '      \'' . htmlspecialchars($producto["nombre"], ENT_QUOTES) . '\',';
             echo '      ' . $producto["descuento"] . ',';
