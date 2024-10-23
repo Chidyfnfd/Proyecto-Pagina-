@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="shortcut icon" href="vistas/images/favicon.png" type="">
 
-  <title>ChampiLoco(Acerca de)</title>
+  <title>ChampiLoco</title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="vistas/css/bootstrap.css" />
@@ -30,6 +30,7 @@
   <link href="vistas/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="vistas/css/responsive.css" rel="stylesheet" />
+  <link href="vistas/css/stylePrincipal.css" rel="stylesheet" />
 
 </head>
 
@@ -57,15 +58,15 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item">
-                <a class="nav-link" href="index.php?accion=principal">Inicio</a>
+                <a class="nav-link" href="index.php?accion=principal">Inicio<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="index.php?accion=productos">Productos</a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="index.php?accion=acercaDe">Acerca de <span class="sr-only">(current)</a>
-              </li>
               <li class="nav-item">
+                <a class="nav-link" href="index.php?accion=acercaDe">Acerca de </a>
+              </li>
+              <li class="nav-item active">
                 <a class="nav-link" href="index.php?accion=reserva">Reserva Ahora</a>
               </li>
             </ul>
@@ -99,38 +100,80 @@
         </nav>
       </div>
     </header>
-  <!-- end header section -->
-
-  <!-- about section -->
-
-  <section class="about_section layout_padding">
-    <div class="container  ">
-
+    <!-- end header section -->
+    
+  <!-- book section -->
+  <section class="book_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Reserva una orden
+        </h2>
+      </div>
       <div class="row">
-        <div class="col-md-6 ">
-          <div class="img-box">
-            <img src="vistas/images/f8.png" alt="">
+        <div class="col-md-6">
+          <div class="form_container">
+            <form action="">
+              <div>
+                <input type="text" class="form-control" placeholder="Tu nombre" />
+              </div>
+              <div>
+                <input type="text" class="form-control" placeholder="Tu número de telefono" />
+              </div>
+              <div>
+                <input type="email" class="form-control" placeholder="Tu dirección" />
+              </div>
+              <div>
+                <select class="form-control nice-select wide">
+                  <option value="" disabled selected>
+                    ¿Para cuantas personas?
+                  </option>
+                  <option value="">
+                    1
+                  </option>
+                  <option value="">
+                    2
+                  </option>
+                  <option value="">
+                    3
+                  </option>
+                  <option value="">
+                    4
+                  </option>
+                  <option value="">
+                    5
+                  </option>
+                  <option value="">
+                    6
+                  </option>
+                  <option value="">
+                    7
+                  </option>
+                  <option value="">
+                    8
+                  </option>
+                </select>
+              </div>
+              <div>
+                <input type="date" class="form-control">
+              </div>
+              <div class="btn_box">
+                <button>
+                  Reserva ahora
+                </button>
+              </div>
+            </form>
           </div>
         </div>
         <div class="col-md-6">
-          <div class="detail-box">
-            <div class="heading_container">
-              <h2>
-                Nosotros somos ChampiLoco
-              </h2>
-            </div>
-            <p>
-            ¿Estás listo para una explosión de sabor? En Champiloco, llevamos los champiñones a otro nivel. Nuestra pasión por estas setas nos ha llevado a crear un menú lleno de platillos únicos y deliciosos. Desde pasta cremosa hasta hamburguesas jugosas, ¡cada bocado es una experiencia inolvidable!
-
-Somos más que un restaurante, somos un lugar donde los amantes de los champiñones pueden disfrutar de una comida divertida y relajada. ¡Ven y descubre por qué estamos "champilocos" por los champiñones!
-            </p>
+          <div class="map_container ">
+            <div id="googleMap"></div>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- end about section -->
+  <!-- end book section -->
 
   <!-- footer section -->
   <footer class="footer_section">
@@ -143,7 +186,7 @@ Somos más que un restaurante, somos un lugar donde los amantes de los champiño
             </h4>
             <div class="contact_link_box">
               <a href="">
-              <i class="ri-whatsapp-line" aria-hidden="true"></i>
+                <i class="ri-whatsapp-line" aria-hidden="true"></i>
                 <span>
                   Whatsapp +57 3000000000
                 </span>
