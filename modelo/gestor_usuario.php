@@ -7,12 +7,12 @@ class GestorUsuario
 
         $conexion = new Conexion();
         $enlace_conexion = $conexion->abrir();
-        $user_sql = $usuario->obtener_usuario();
+        $usuarioN = $usuario->obtener_usuarioN();
         $contraseña = $usuario->obtener_contraseña();
 
         // Preparar la consulta
-        $sql = $enlace_conexion->prepare("SELECT * FROM usuarios WHERE usuario = ?");
-        $sql->bind_param("s", $user_sql);
+        $sql = $enlace_conexion->prepare("SELECT * FROM usuarios WHERE usuarioN = ?");
+        $sql->bind_param("s", $usuarioN);
         $sql->execute();
         $resultado = $sql->get_result()->fetch_assoc();
 
@@ -36,11 +36,11 @@ class GestorUsuario
         $enlaceConexion = $conexion->abrir();
         $nombre = $usuario->obtener_nombre();
         $contraseña = $usuario->obtener_contraseña();
-        $usuarioN = $usuario->obtener_usuario();
+        $usuarioN = $usuario->obtener_usuarioN();
         $tipoUsuario = $usuario->obtener_tipoUsuario();
 
         // Prepara la declaración
-        $sql = $enlaceConexion->prepare("INSERT INTO usuarios(nombre, contraseña, usuario, tipoUsuario) VALUES (?, ?, ?, ?)");
+        $sql = $enlaceConexion->prepare("INSERT INTO usuarios(nombre, contraseña, usuarioN, tipoUsuario) VALUES (?, ?, ?, ?)");
 
         // Verifica si la preparación fue exitosa
         if ($sql === false) {

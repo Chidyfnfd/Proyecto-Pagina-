@@ -93,16 +93,16 @@ if (isset($_GET["accion"])) {
         }
 
         // Llamada al método verificar
-        $usuario = $_POST["usuario"];
+        $usuarioN = $_POST["usuario"];
         $contraseña = $_POST["contraseña"];
-        $datosUsuario = $controlador->verificar($usuario, $contraseña);
+        $datosUsuario = $controlador->verificar($usuarioN, $contraseña);
 
         if ($datosUsuario) {
             // Aquí $datosUsuario contiene todo el registro del usuario
             $_SESSION['usuario_id'] = $datosUsuario['id']; // Accede a los campos correctos
             $_SESSION['usuario_nombre'] = $datosUsuario['nombre']; 
             $_SESSION['usuario_contraseña'] = $datosUsuario['contraseña'];
-            $_SESSION['usuario_usuarioN'] = $datosUsuario['usuarioN']; 
+            $_SESSION['usuario_usuarioN'] = $datosUsuario['usuarioN']; // Cambiar a usuarioN
             $_SESSION['usuario_tipo'] = $datosUsuario['tipoUsuario'];
             header('Location: index.php?accion=principal');
         } else {
