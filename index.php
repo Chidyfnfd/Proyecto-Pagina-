@@ -34,6 +34,8 @@ if (isset($_GET["accion"])) {
         $controlador->verPagina('vistas/html/perfil.php');
     } elseif ($_GET["accion"] == "acercaDe") {
         $controlador->verPagina('vistas/html/acercaDe.php');
+    } elseif ($_GET["accion"] == "reserva") {
+        $controlador->verPagina('vistas/html/reserva.php');
     } elseif ($_GET["accion"] == "agregarProducto") {
         
         $controlador->agregarProducto(
