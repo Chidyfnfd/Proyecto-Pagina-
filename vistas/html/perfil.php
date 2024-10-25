@@ -120,7 +120,7 @@
               } else {
                 $tipoUsuario = 'Desconocido';
               }
-
+              
               // Mostrar los datos en una tabla
               echo "<table border='1' cellpadding='10' cellspacing='0'>
         <tr>
@@ -149,6 +149,20 @@
         </div>
       </div>
     </div>
+    <section class="about_section layout_padding">
+    <div class="container  ">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="detail-box">
+            <a href="index.php?accion=destruirSesion">
+              Cerrar Sesion
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
     <!-- footer section -->
     <footer class="footer_section">
       <div class="container">
@@ -189,22 +203,22 @@
                 Tu dosis diaria de locura... ¡con champiñones!
               </p>
               <div class="footer_social">
-                <a href="">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i class="fa fa-linkedin" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i class="fa fa-instagram" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i class="fa fa-pinterest" aria-hidden="true"></i>
-                </a>
-              </div>
+              <a href="https://www.facebook.com">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="https://www.x.com">
+              <i class="ri-twitter-x-line" aria-hidden></i>
+              </a>
+              <a href="https://co.linkedin.com">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="https://www.instagram.com">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="https://co.pinterest.com">
+                <i class="fa fa-pinterest" aria-hidden="true"></i>
+              </a>
+            </div>
             </div>
           </div>
           <div class="col-md-4 footer-col">
