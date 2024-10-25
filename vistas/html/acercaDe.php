@@ -34,7 +34,7 @@
 </head>
 
 <body>
-
+  
   <div class="hero_area">
     <div class="bg-box">
       <img src="vistas/images/hero-bg.jpg" alt="">
@@ -172,19 +172,19 @@ Somos más que un restaurante, somos un lugar donde los amantes de los champiño
               Tu dosis diaria de locura... ¡con champiñones!
             </p>
             <div class="footer_social">
-              <a href="www.facebook.com">
+              <a href="https://www.facebook.com">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
               </a>
-              <a href="www.x.com">
+              <a href="https://www.x.com">
               <i class="ri-twitter-x-line" aria-hidden></i>
               </a>
-              <a href="co.linkedin.com">
+              <a href="https://co.linkedin.com">
                 <i class="fa fa-linkedin" aria-hidden="true"></i>
               </a>
-              <a href="www.instagram.com">
+              <a href="https://www.instagram.com">
                 <i class="fa fa-instagram" aria-hidden="true"></i>
               </a>
-              <a href="co.pinterest.com">
+              <a href="https://co.pinterest.com">
                 <i class="fa fa-pinterest" aria-hidden="true"></i>
               </a>
             </div>
