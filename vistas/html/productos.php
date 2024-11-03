@@ -346,7 +346,6 @@
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Producto</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form id="productForm" action="index.php?accion=agregarProducto" method="POST" enctype="multipart/form-data">
@@ -395,7 +394,6 @@
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Producto</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form id="productForm" action="index.php?accion=editarProducto" method="POST" enctype="multipart/form-data">
@@ -456,7 +454,6 @@
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Tipo</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form id="TipoForm" action="index.php?accion=agregarTipo" method="POST" enctype="multipart/form-data">
