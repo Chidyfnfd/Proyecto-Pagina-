@@ -101,6 +101,8 @@
       </div>
     </header>
     <!-- end header section -->
+    <!-- Tabla de informacion-->
+    <footer class="footer_section">
     <div class="container ">
       <div class="row">
         <div class="col-md-7 col-lg-6 ">
@@ -161,9 +163,10 @@
         </div>
       </div>
     </div>
+  </footer>
   </section>
-  
-    <!-- footer section -->
+  <!-- Tabla de informacion-->
+  <!-- footer section -->
     <footer class="footer_section">
       <div class="container">
         <div class="row">

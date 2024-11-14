@@ -664,6 +664,7 @@ a:focus {
 
 .book_section {
   position: relative;
+  color: #ffffff;
 }
 
 .book_section .heading_container {
