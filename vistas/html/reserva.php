@@ -115,7 +115,7 @@
           <div class="form_container">
             <form action="">
               <div>
-                <input type="text" class="form-control" placeholder="Tu nombre" />
+                <input type="text" class="form-control" placeholder="Nombre de quien recibe" />
               </div>
               <div>
                 <input type="text" class="form-control" placeholder="Tu número de telefono" />
