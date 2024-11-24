@@ -39,7 +39,7 @@
     <div class="bg-box">
       <img src="vistas/images/hero-bg.jpg" alt="">
     </div>
-    <!-- header section strats -->
+    <!-- Cabeza de pagina-->
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -99,9 +99,9 @@
         </nav>
       </div>
     </header>
-  <!-- end header section -->
+  <!-- Cabeza de pagina-->
 
-  <!-- about section -->
+  <!--Seccion Acerca de-->
 
   <section class="about_section layout_padding">
     <div class="container  ">
@@ -130,9 +130,9 @@ Somos más que un restaurante, somos un lugar donde los amantes de los champiño
     </div>
   </section>
 
-  <!-- end about section -->
+  <!--Seccion Acerca de-->
 
-  <!-- footer section -->
+  <!-- Pie de pagina -->
   <footer class="footer_section">
     <div class="container">
       <div class="row">
@@ -204,7 +204,7 @@ Somos más que un restaurante, somos un lugar donde los amantes de los champiño
       </div>
     </div>
   </footer>
-  <!-- footer section -->
+  <!-- Pie de pagina -->
 
   <!-- jQery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
