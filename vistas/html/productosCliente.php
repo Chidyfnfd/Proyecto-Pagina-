@@ -39,7 +39,7 @@
     <div class="bg-box">
       <img src="vistas/images/hero-bg.jpg" alt="">
     </div>
-    <!-- header section strats -->
+    <!-- Cabeza de pagina-->
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -99,10 +99,10 @@
         </nav>
       </div>
     </header>
-    <!-- end header section -->
+    <!-- Cabeza de pagina-->
   </div>
 
-  <!-- food section -->
+  <!--Seccion del Menú-->
 
   <section class="food_section layout_padding">
     <div class="container">
@@ -157,7 +157,7 @@
 
   <!-- end food section -->
 
-  <!-- footer section -->
+  <!-- Pie de pagina -->
   <footer class="footer_section">
     <div class="container">
       <div class="row">
@@ -230,7 +230,7 @@
     </div>
   </footer>
 
-    <!-- footer section -->
+    <!-- Pie de pagina -->
 
     <!-- jQery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

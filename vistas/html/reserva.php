@@ -40,7 +40,7 @@
     <div class="bg-box">
       <img src="vistas/images/hero-bg.jpg" alt="">
     </div>
-    <!-- header section strats -->
+    <!-- Cabeza de pagina-->
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -100,9 +100,9 @@
         </nav>
       </div>
     </header>
-    <!-- end header section -->
+    <!-- Cabeza de pagina-->
     
-  <!-- book section -->
+  <!--Seccion de Reserva-->
   <section class="book_section layout_padding">
     <div class="container">
       <div class="heading_container">
@@ -173,9 +173,9 @@
       </div>
     </div>
   </section>
-  <!-- end book section -->
+  <!--Seccion de Reserva-->
 
-  <!-- footer section -->
+  <!-- Pie de pagina -->
   <footer class="footer_section">
     <div class="container">
       <div class="row">
@@ -247,7 +247,7 @@
       </div>
     </div>
   </footer>
-  <!-- footer section -->
+  <!-- Pie de pagina -->
 
   <!-- jQery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
