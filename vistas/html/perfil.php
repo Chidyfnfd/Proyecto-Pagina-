@@ -150,6 +150,10 @@
               exit();
             }
             ?>
+            <section class="food_section layout_padding-bottom">
+              <div class="btn-box">
+                <a href="index.php?accion=editarDatosCuenta" class="btn">Editar datos de cuenta</a>
+            </div></section>
           </div>
         </div>
       </div>
