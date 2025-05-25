@@ -103,8 +103,9 @@
     <!-- Cabeza de pagina-->
   </div>
 
+  <input type="text" id="buscador" onkeyup="filtrarProductos()" placeholder="Buscar por nombre...">
   <!-- offer section -->
-
+  
   <section class="offer_section layout_padding-bottom">
     <div class="heading_container heading_center options">
       <h2>

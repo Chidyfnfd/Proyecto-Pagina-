@@ -100,7 +100,7 @@
         </nav>
       </div>
     </header>
-    <!-- Cabeza de pagina-->
+  <!-- Cabeza de pagina-->
     
   <!--Seccion de Reserva-->
   <section class="book_section layout_padding">
