@@ -101,6 +101,7 @@
       </div>
     </header>
     <!-- Cabeza de pagina-->
+     
     <!-- Tabla de informacion-->
     <footer class="footer_section">
     <div class="container ">
@@ -140,6 +141,8 @@
             <td>" . $tipoUsuario . "</td>
         </tr>
         </table>";
+              // Mostrar opciones de agregar administrador
+              
             } else {
               echo "No has iniciado sesión. Por favor, inicia sesión primero.";
               // Redirigir al login
@@ -151,7 +154,57 @@
         </div>
       </div>
     </div>
-    <section class="about_section layout_padding">
+    
+<div class="container">
+  <div class="row">
+    <div class="col-md-7 col-lg-6">
+      <div class="detail-box">
+        <h1></h1>
+        <p></p>
+
+        <?php
+        // Comprueba si el usuario ha iniciado sesión y es administrador
+        if (isset($_SESSION['usuario_id']) && isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] == 1) {
+
+          // Determina el tipo de usuario con una descripción
+          $tipoUsuario = 'Administrador';
+
+          // Menú de opciones solo para administradores
+          echo "<h2>Menú de administración</h2>";
+          echo "<table border='1' cellpadding='10' cellspacing='0'>
+            <tr>
+              <th>Opción</th>
+              <th>Descripción</th>
+              <th>Acción</th>
+            </tr>
+            <tr>
+              <td>Agregar Empleado</td>
+              <td>Registrar un nuevo empleado en el sistema</td>
+              <td><a href='agregar_empleado.php'>Agregar</a></td>
+            </tr>
+            <tr>
+              <td>Editar Empleado</td>
+              <td>Modificar la información de un empleado existente</td>
+              <td><a href='editar_empleado.php'>Editar</a></td>
+            </tr>
+            <tr>
+              <td>Eliminar Empleado</td>
+              <td>Eliminar un empleado del sistema</td>
+              <td><a href='eliminar_empleado.php'>Eliminar</a></td>
+            </tr>
+          </table>";
+          
+        } else {
+          echo "";
+          exit();
+        }
+        ?>
+
+      </div>
+    </div>
+  </div>
+</div>
+        <section class="about_section layout_padding">
     <div class="container  ">
       <div class="row">
         <div class="col-md-6">
@@ -165,6 +218,7 @@
     </div>
   </footer>
   </section>
+    
   <!-- Tabla de informacion-->
    
   <!-- Pie de pagina -->

@@ -356,7 +356,7 @@
     <div class="container">
       <div class="heading_container">
         <h2>
-          Reserva una orden
+          Pide en linea
         </h2>
       </div>
       <div class="row">

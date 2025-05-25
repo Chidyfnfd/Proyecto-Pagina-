@@ -100,80 +100,60 @@
         </nav>
       </div>
     </header>
-    <!-- Cabeza de pagina-->
+  <!-- Cabeza de pagina-->
     
-  <!--Seccion de Reserva-->
-  <section class="book_section layout_padding">
-    <div class="container">
-      <div class="heading_container">
-        <h2>
-          Reserva una orden
-        </h2>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form_container">
-            <form action="">
-              <div>
-                <input type="text" class="form-control" placeholder="Nombre de quien recibe" />
-              </div>
-              <div>
-                <input type="text" class="form-control" placeholder="Tu número de telefono" />
-              </div>
-              <div>
-                <input type="email" class="form-control" placeholder="Tu dirección" />
-              </div>
-              <div>
-                <select class="form-control nice-select wide">
-                  <option value="" disabled selected>
-                    ¿Para cuantas personas?
-                  </option>
-                  <option value="">
-                    1
-                  </option>
-                  <option value="">
-                    2
-                  </option>
-                  <option value="">
-                    3
-                  </option>
-                  <option value="">
-                    4
-                  </option>
-                  <option value="">
-                    5
-                  </option>
-                  <option value="">
-                    6
-                  </option>
-                  <option value="">
-                    7
-                  </option>
-                  <option value="">
-                    8
-                  </option>
-                </select>
-              </div>
-              <div>
-                <input type="date" class="form-control">
-              </div>
-              <div class="btn_box">
-                <button>
-                  Reserva ahora
-                </button>
-              </div>
-            </form>
+<!-- Sección de Reserva -->
+<section class="book_section layout_padding">
+  <div class="container">
+    <div class="heading_container">
+      <h2>Reserva una orden</h2>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <form method="post" action="procesar_reserva.php">
+          <div class="form-group">
+            <label for="sucursal">Selecciona la Sucursal:</label>
+            <select name="sucursal" id="sucursal" class="form-control" required>
+              <option value="">-- Selecciona una sucursal --</option>
+              <?php
+              $sucursales = [
+                ['id' => 1, 'nombre' => 'Carrera x #1 (Sucursal Centro)'],
+                ['id' => 2, 'nombre' => 'Calle x #norte (Sucursal Norte)'],
+                ['id' => 3, 'nombre' => 'Calle x #sur (Sucursal Sur)']
+              ];
+              foreach ($sucursales as $sucursal) {
+                echo "<option value='{$sucursal['id']}'>{$sucursal['nombre']}</option>";
+              }
+              ?>
+            </select>
           </div>
-        </div>
-        <div class="col-md-6">
-          <div class="map_container ">
-            <div id="googleMap"></div>
+
+          <div class="form-group">
+            <label for="personas">Cantidad de Personas:</label>
+            <input type="number" id="personas" name="personas" class="form-control" min="1" required>
           </div>
-        </div>
+
+          <div class="form-group">
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" name="hora" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Reservar</button>
+          </div>
+        </form>
       </div>
     </div>
-  </section>
-  <!--Seccion de Reserva-->
+  </div>
+</section>
+<!-- Fin de Sección de Reserva -->
+
 
   <!-- Pie de pagina -->
   <footer class="footer_section">

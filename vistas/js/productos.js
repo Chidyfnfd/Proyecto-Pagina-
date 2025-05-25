@@ -87,3 +87,22 @@ function editarDescuento(id, nombre, descuento, estado, imagen) {
     var modal = new bootstrap.Modal(document.getElementById('exampleModal4'));
     modal.show();
   }
+
+  function filtrarProductos() {
+    var input, filter, div, h5, i, txtValue;
+    input = document.getElementById('buscador');
+    filter = input.value.toUpperCase();
+    div = document.getElementsByClassName("box");
+    
+    for (i = 0; i < div.length; i++) {
+      h5 = div[i].getElementsByTagName("h5")[0];
+      if (h5) {
+        txtValue = h5.textContent || h5.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          div[i].parentElement.style.display = "";
+        } else {
+          div[i].parentElement.style.display = "none";
+        }
+      }       
+    }
+  }
