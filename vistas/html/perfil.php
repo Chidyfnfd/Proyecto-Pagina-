@@ -125,22 +125,22 @@
               }
               
               // Mostrar los datos en una tabla
-              echo "<table border='1' cellpadding='10' cellspacing='0'>
-        <tr>
-            <th>ID de Usuario</th>
-            <th>Nombre</th>
-            <th>Contraseña</th>
-            <th>Nombre de Usuario</th>
-            <th>Tipo de Usuario</th>
-        </tr>
-        <tr>
-            <td>" . $_SESSION['usuario_id'] . "</td>
-            <td>" . $_SESSION['usuario_nombre'] . "</td>
-            <td>" . $_SESSION['usuario_contraseña'] . "</td>
-            <td>" . $_SESSION['usuario_usuarioN'] . "</td>  <!-- Cambia esto -->
-            <td>" . $tipoUsuario . "</td>
-        </tr>
-        </table>";
+              echo "<table border='1' cellpadding='10' cellspacing='0' style='background-color: #222831; color: white;'>
+                <tr>
+                  <th>ID de Usuario</th>
+                    <th>Nombre</th>
+                    <th>Contraseña</th>
+                   <th>Nombre de Usuario</th>
+                  <th>Tipo de Usuario</th>
+                </tr>
+                <tr>
+        <td>" . $_SESSION['usuario_id'] . "</td>
+        <td>" . $_SESSION['usuario_nombre'] . "</td>
+        <td>" . $_SESSION['usuario_contraseña'] . "</td>
+        <td>" . $_SESSION['usuario_usuarioN'] . "</td>
+        <td>" . $tipoUsuario . "</td>
+    </tr>
+</table>";
               // Mostrar opciones de agregar administrador
               
             } else {
@@ -175,27 +175,27 @@
 
           // Menú de opciones solo para administradores
           echo "<h2>Menú de administración</h2>";
-          echo "<table border='1' cellpadding='10' cellspacing='0'>
-            <tr>
-              <th>Opción</th>
-              <th>Descripción</th>
-              <th>Acción</th>
-            </tr>
-            <tr>
-              <td>Agregar Empleado</td>
-              <td>Registrar un nuevo empleado en el sistema</td>
-              <td><a href='agregar_empleado.php'>Agregar</a></td>
-            </tr>
-            <tr>
-              <td>Editar Empleado</td>
-              <td>Modificar la información de un empleado existente</td>
-              <td><a href='editar_empleado.php'>Editar</a></td>
-            </tr>
-            <tr>
-              <td>Eliminar Empleado</td>
-              <td>Eliminar un empleado del sistema</td>
-              <td><a href='eliminar_empleado.php'>Eliminar</a></td>
-            </tr>
+          echo "<table border='1' cellpadding='10' cellspacing='0' style='background-color: #222831; color: white;'>
+              <tr>
+                  <th>Opción</th>
+                  <th>Descripción</th>
+                  <th>Acción</th>
+              </tr>
+              <tr>
+                  <td>Agregar Empleado</td>
+                  <td>Registrar un nuevo empleado en el sistema</td>
+                  <td><a href='agregar_empleado.php' style='color: #ffbe33;'>Agregar</a></td>
+              </tr>
+              <tr>
+                  <td>Editar Empleado</td>
+                  <td>Modificar la información de un empleado existente</td>
+                  <td><a href='editar_empleado.php' style='color: #ffbe33;'>Editar</a></td>
+              </tr>
+              <tr>
+                  <td>Eliminar Empleado</td>
+                  <td>Eliminar un empleado del sistema</td>
+                  <td><a href='eliminar_empleado.php' style='color: #ffbe33;'>Eliminar</a></td>
+              </tr>
           </table>";
           
         } else {
