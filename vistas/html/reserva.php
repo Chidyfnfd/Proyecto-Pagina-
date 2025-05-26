@@ -145,7 +145,7 @@
           </div>
 
           <div class="form-group">
-            <button type="submit" class="btn btn-primary">Reservar</button>
+            <button type="submit" class="btn_box">Reservar</button>
           </div>
         </form>
       </div>
