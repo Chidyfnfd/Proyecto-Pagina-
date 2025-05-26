@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="shortcut icon" href="vistas/images/favicon.png" type="">
 
-  <title>ChampiLoco(Reserva)</title>
+  <title>ChampiLoco(Editar cuenta)</title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="vistas/css/bootstrap.css" />
@@ -103,55 +103,32 @@
   <!-- Cabeza de pagina-->
     
 <!-- Sección de Reserva -->
-<section class="book_section layout_padding">
+  <section class="edit_account_section layout_padding">
   <div class="container">
     <div class="heading_container">
-      <h2>Reserva una orden</h2>
+      <h2>Editar Datos de Cuenta</h2>
     </div>
 
-    <div class="row">
-      <div class="col-md-6">
-        <form method="post" action="procesar_reserva.php">
-          <div class="form-group">
-            <label for="sucursal">Selecciona la Sucursal:</label>
-            <select name="sucursal" id="sucursal" class="form-control" required>
-              <option value="">-- Selecciona una sucursal --</option>
-              <?php
-              $sucursales = [
-                ['id' => 1, 'nombre' => 'Carrera x #1 (Sucursal Centro)'],
-                ['id' => 2, 'nombre' => 'Calle x #norte (Sucursal Norte)'],
-                ['id' => 3, 'nombre' => 'Calle x #sur (Sucursal Sur)']
-              ];
-              foreach ($sucursales as $sucursal) {
-                echo "<option value='{$sucursal['id']}'>{$sucursal['nombre']}</option>";
-              }
-              ?>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="personas">Cantidad de Personas:</label>
-            <input type="number" id="personas" name="personas" class="form-control" min="1" required>
-          </div>
-
-          <div class="form-group">
-            <label for="fecha">Fecha:</label>
-            <input type="date" id="fecha" name="fecha" class="form-control" required>
-          </div>
-
-          <div class="form-group">
-            <label for="hora">Hora:</label>
-            <input type="time" id="hora" name="hora" class="form-control" required>
-          </div>
-
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary">Reservar</button>
-          </div>
-        </form>
+    <form method="post" action="index.php?accion=actualizarDatosCuenta">
+      <div class="form-group">
+        <label for="nuevoNombre">Nombre:</label>
+        <input type="text" class="form-control" name="nuevoNombre" id="nuevoNombre" value="<?= $_SESSION['usuario_nombre'] ?>" required>
       </div>
-    </div>
+
+      <div class="form-group">
+        <label for="nuevoUsuario">Nombre de Usuario:</label>
+        <input type="text" class="form-control" name="nuevoUsuario" id="nuevoUsuario" value="<?= $_SESSION['usuario_usuarioN'] ?>" required>
+      </div>
+
+      <div class="form-group">
+        <label for="nuevaContraseña">Contraseña:</label>
+        <input type="password" class="form-control" name="nuevaContraseña" id="nuevaContraseña" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Actualizar</button>
+    </form>
   </div>
-</section>
+</section>          
 <!-- Fin de Sección de Reserva -->
 
 

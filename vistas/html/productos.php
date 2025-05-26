@@ -103,7 +103,16 @@
     <!-- Cabeza de pagina-->
   </div>
 
-  <input type="text" id="buscador" onkeyup="filtrarProductos()" placeholder="Buscar por nombre...">
+  <!-- Buscador de Producto-->
+   <section class="">
+      <form method="GET" action="index.php">
+        <input type="hidden" name="accion" value="buscarProducto">
+          <input type="text" name="termino" placeholder="Buscar producto..." required>
+          <button type="submit">Buscar</button>
+      </form>
+    </section>
+  <!-- Fin buscador de Producto-->
+
   <!-- offer section -->
   
   <section class="offer_section layout_padding-bottom">

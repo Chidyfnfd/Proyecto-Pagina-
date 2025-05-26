@@ -240,11 +240,9 @@
       </div>
     </div>
   </section>
-
   <!-- end offer section -->
 
   <!--Seccion del Menú-->
-
   <section class="food_section layout_padding-bottom">
     <div class="container">
       <div class="heading_container heading_center">
