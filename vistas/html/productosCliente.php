@@ -34,10 +34,19 @@
 </head>
 
 <body class="sub_page">
+  <?php
+$imagenes = [
+    "vistas/images/hero-bg1.jpg",
+    "vistas/images/hero-bg2.jpg",
+    "vistas/images/hero-bg3.jpg",
+    "vistas/images/hero-bg4.jpg"
+];
 
+$imagenAleatoria = $imagenes[array_rand($imagenes)];
+?>
   <div class="hero_area">
     <div class="bg-box">
-      <img src="vistas/images/hero-bg.jpg" alt="">
+       <img src="<?php echo $imagenAleatoria; ?>" alt="">
     </div>
     <!-- Cabeza de pagina-->
     <header class="header_section">
