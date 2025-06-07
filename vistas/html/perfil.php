@@ -35,10 +35,27 @@
 </head>
 
 <body>
+  <?php
+$imagenes = [
+    "vistas/images/hero-bg1.jpg",
+    "vistas/images/hero-bg2.jpg",
+    "vistas/images/hero-bg3.jpg",
+    "vistas/images/hero-bg4.jpg"
+];
 
+// Verificar que las imágenes existen
+$imagenesValidas = array_filter($imagenes, 'file_exists');
+
+if (!empty($imagenesValidas)) {
+    $imagenAleatoria = $imagenesValidas[array_rand($imagenesValidas)];
+} else {
+    // Imagen predeterminada en caso de que no haya imágenes válidas
+    $imagenAleatoria = "vistas/images/hero-bg.jpg";
+}
+?>
   <div class="hero_area">
     <div class="bg-box">
-      <img src="vistas/images/hero-bg.jpg" alt="">
+       <img src="<?php echo $imagenAleatoria; ?>" alt="">
     </div>
     <!-- Cabeza de pagina-->
     <header class="header_section">
@@ -158,71 +175,49 @@
         </div>
       </div>
     </div>
-    
-<div class="container">
+  <div class="container">
   <div class="row">
     <div class="col-md-7 col-lg-6">
       <div class="detail-box">
         <h1></h1>
         <p></p>
-
-        <?php
+       <?php
         // Comprueba si el usuario ha iniciado sesión y es administrador
         if (isset($_SESSION['usuario_id']) && isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] == 1) {
-
-          // Determina el tipo de usuario con una descripción
-          $tipoUsuario = 'Administrador';
-
-          // Menú de opciones solo para administradores
-          echo "<h2>Menú de administración</h2>";
-          echo "<table border='1' cellpadding='10' cellspacing='0' style='background-color: #222831; color: white;'>
-              <tr>
-                  <th>Opción</th>
-                  <th>Descripción</th>
-                  <th>Acción</th>
-              </tr>
-              <tr>
-                  <td>Agregar Empleado</td>
-                  <td>Registrar un nuevo empleado en el sistema</td>
-                  <td><a href='agregar_empleado.php' style='color: #ffbe33;'>Agregar</a></td>
-              </tr>
-              <tr>
-                  <td>Editar Empleado</td>
-                  <td>Modificar la información de un empleado existente</td>
-                  <td><a href='editar_empleado.php' style='color: #ffbe33;'>Editar</a></td>
-              </tr>
-              <tr>
-                  <td>Eliminar Empleado</td>
-                  <td>Eliminar un empleado del sistema</td>
-                  <td><a href='eliminar_empleado.php' style='color: #ffbe33;'>Eliminar</a></td>
-              </tr>
-          </table>";
-          
-        } else {
-          echo "";
-          exit();
+            
+            // Menú de opciones solo para administradores
+            echo "<h2>Menú de administración</h2>";
+            echo "<table border='1' cellpadding='10' cellspacing='0' style='background-color: #222831; color: white;'>
+                <tr>
+                    <th>Opción</th>
+                    <th>Descripción</th>
+                    <th>Acción</th>
+                </tr>
+                <tr>
+                    <td>Agregar Empleado</td>
+                    <td>Registrar un nuevo empleado en el sistema</td>
+                    <td><a href='agregar_empleado.php' style='color: #ffbe33;'>Agregar</a></td>
+                </tr>
+                <tr>
+                    <td>Editar Empleado</td>
+                    <td>Modificar la información de un empleado existente</td>
+                    <td><a href='editar_empleado.php' style='color: #ffbe33;'>Editar</a></td>
+                </tr>
+                <tr>
+                    <td>Eliminar Empleado</td>
+                    <td>Eliminar un empleado del sistema</td>
+                    <td><a href='eliminar_empleado.php' style='color: #ffbe33;'>Eliminar</a></td>
+                </tr>
+            </table>";
         }
         ?>
-
-      </div>
-    </div>
-  </div>
-</div>
-        <section class="about_section layout_padding">
-    <div class="container  ">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="detail-box">
-            <a href="index.php?accion=destruirSesion">
-              Cerrar Sesion
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+      <section class="food_section layout_padding-bottom">
+              <div class="btn-box">
+                <a href="index.php?accion=destruirSesion" class="btn">Cerrar Sesion</a>
+            </div></section>
   </footer>
   </section>
-    
+
   <!-- Tabla de informacion-->
    
   <!-- Pie de pagina -->

@@ -113,7 +113,7 @@
     </section>
   <!-- Fin buscador de Producto-->
 
-  <!-- offer section -->
+  <!-- Seccion de descuentos -->
   
   <section class="offer_section layout_padding-bottom">
     <div class="heading_container heading_center options">
@@ -262,7 +262,7 @@
                         }
                       } else {
                         // Mostrar opciones para usuarios no autenticados
-                        echo "<a class='text-light' href='index.php?accion=login'> <i class='ri-door-open-fill'></i>INICIAR SESION</a>";
+                        echo "<a class='text-light' href='index.php?accion=login'> <i class='ri-login-circle-fill'></i></a>";
                       }
                       ?>
                     </div>

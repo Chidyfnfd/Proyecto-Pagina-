@@ -35,10 +35,19 @@
 </head>
 
 <body>
+  <?php
+$imagenes = [
+    "vistas/images/hero-bg1.jpg",
+    "vistas/images/hero-bg2.jpg",
+    "vistas/images/hero-bg3.jpg",
+    "vistas/images/hero-bg4.jpg"
+];
 
+$imagenAleatoria = $imagenes[array_rand($imagenes)];
+?>
   <div class="hero_area">
     <div class="bg-box">
-      <img src="vistas/images/hero-bg.jpg" alt="">
+       <img src="<?php echo $imagenAleatoria; ?>" alt="">
     </div>
     <!-- Cabeza de pagina-->
     <header class="header_section">
@@ -227,7 +236,7 @@
               }
             } else {
               // Mostrar opciones para usuarios no autenticados
-              echo "<a class='text-light' href='index.php?accion=login'> <i class='ri-door-open-fill'></i>INICIAR SESION</a>";
+              echo "<a class='text-light' href='index.php?accion=login'> <i class='ri-login-circle-fill'></i></a>";
             }
             echo '    </div>';
             echo '  </div>';
@@ -285,7 +294,7 @@
                         }
                       } else {
                         // Mostrar opciones para usuarios no autenticados
-                        echo "<a class='text-light' href='index.php?accion=login'> <i class='ri-door-open-fill'></i>INICIAR SESION</a>";
+                        echo "<a class='text-light' href='index.php?accion=login'> <i class='ri-login-circle-fill'></i></a>";
                       }
                       ?>
                     </div>

@@ -35,11 +35,24 @@
 </head>
 
 <body>
+  <?php
+$imagenes = [
+    "vistas/images/hero-bg1.jpg",
+    "vistas/images/hero-bg2.jpg",
+    "vistas/images/hero-bg3.jpg",
+    "vistas/images/hero-bg4.jpg"
+];
 
-  <div class="hero_area">
-    <div class="bg-box">
-      <img src="vistas/images/hero-bg.jpg" alt="">
-    </div>
+// Verificar que las imágenes existen
+$imagenesValidas = array_filter($imagenes, 'file_exists');
+
+if (!empty($imagenesValidas)) {
+    $imagenAleatoria = $imagenesValidas[array_rand($imagenesValidas)];
+} else {
+    // Imagen predeterminada en caso de que no haya imágenes válidas
+    $imagenAleatoria = "vistas/images/hero-bg.jpg";
+}
+?>
     <!-- Cabeza de pagina-->
     <header class="header_section">
       <div class="container">
